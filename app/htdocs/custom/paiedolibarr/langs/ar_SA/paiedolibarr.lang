@@ -1,0 +1,254 @@
+Module1909671820Name=رواتب Dolibarr
+Module1909671820Desc=إدارة الرواتب Dolibarr
+
+BackToModuleList=العودة إلى قائمة الوحدات
+paiedolibarrSetup=تكوين وحدة الرواتب
+paiedolibarrAbout=حول وحدة الرواتب
+paiedolibarr=يدفع
+
+ExtraFieldspaiedolibarr=سمات إضافية
+
+#---------------------------------------------------------
+paiesemployee=رواتب Dolibarr
+paiedolibarr2=رواتب الموظف
+paiesname=اسم الدفع
+paiedolibarremploye=الموظف
+paiesalairenet=صافي الراتب
+NewPaie=كشوف رواتب جديدة
+PAIESLIP=يدفع
+Fiche_de_salaire=قسيمة الدفع
+paiedolibarrmsgconfirmdelet=هل أنت متأكد أنك تريد متابعة الحذف؟
+paiecalculdesalaire=حساب الأجور
+paieofmonth=فترة
+paiedolibarr_employe=موظف
+paiedolibarr_ref=مرجع
+paiesdatepay=تاريخ الدفع
+paielist=رواتب Dolibarr
+paieadd=جديد
+paierules=قواعد الدفع
+BASIQUE=أساسي
+BRUT=خام
+COTISATION=مساهمة
+OTHER=آخر
+ExempleCondition=مثال على الحالة
+ExempleFormuleCalcul=أمثلة صيغة الحساب
+conditionexemple=(logic_test)؟ (value_if_true): (value_if_false)
+paieshowafterpoint=عدد المنازل العشرية
+
+
+paieCode=مشفرة
+paieDesignation=تعيين
+paieBase=قاعدة
+paieTaux=معدل
+paieSalariale_Patronale=الراتب / صاحب العمل
+paieRetenu_Gain=عقد (-) / ربح (+)
+paieTotal=مجموع
+paieCategorie=فئة
+
+paieMontant_de_base=المبلغ الأساسي
+
+paiePart_par_defaut=المشاركة الافتراضية
+paieCalcule_automatiquement=تحسب تلقائيا
+paieMontant_fixe=مبلغ ثابت
+paieSalaire_de_base=الراتب الاساسي
+paieSalaire_Brut_ImposableC=الراتب الإجمالي الخاضع للضريبة
+paieSalaire_Brut_Imposable=إجمالي الراتب
+paieSalariale=مرتب
+paiePatronale=صاحب العمل
+paieGainc=يكسب
+paieGain=ربح (+)
+paieRetenu=محجوب (-)
+paieGainSigne=+
+paieRetenuSigne=-
+ChooseAnEmployee=الرجاء اختيار موظف
+
+
+paieBulletin_de_paie=قسيمة الراتب
+paieBulletin_de_salaire=راتب
+paiePeriode=فترة الدفع
+paiePaiement_le=الدفع على
+paiePar=بواسطة
+paieMatricule=رقم التسجيل
+paieSituation_F=الوضع و.
+paieNbre_enfants=عدد الاطفال
+paiePart_IGR=حصة IGR
+paieAnciennete=الأقدمية
+paieN_de_securite_sociale=رقم الضمان الاجتماعي
+paieEmploi_occupe=العمل الحالي
+paieQualification=مؤهل
+paieNbre_Jrs=عدد الأيام
+paieDate_d_embauche=تاريخ التوظيف
+paieAcquis=مكتسب
+paieReste_a_prendre=لا يزال لاتخاذ
+paiePrix=سعر
+paieRepos_comp=بقية شركات.
+paieConges=يترك
+paieDates_de_conges=مواعيد العيد
+paiedu=ال
+paieau=في
+paieCommentaire=تعليق
+paieNombre=رقم
+paiePart_salariale=حصة الراتب
+paiePart_patronale=مساهمة صاحب العمل
+paieRetenue=احتجاز
+paieTotal_des_Cotisations=إجمالي المساهمات
+paieSalaire_de_base=الراتب الاساسي
+paieCharges_salariales=تكاليف الأجور
+paieCharges_patronales=مساهمات صاحب العمل
+paieRetenus=حجب
+paieTransports=ينقل
+paieNet_a_payer=صافي للدفع
+paietipfooter=لمساعدتك على تأكيد حقوقك ، احتفظ بإيصال الدفع هذا لفترة غير محددة.
+paieSignature_employe=موظف التوقيع
+paieCachet_et_signature_employeur=ختم وتوقيع صاحب العمل
+paiePrintFile=لطباعة
+
+
+#--------------------------------------------------------- User
+beginpaiedolibarr2=يدفع
+endpaiedolibarr2=-
+paiematricule=رقم التسجيل
+paiezone=منطقة
+paiecategorie=فئة
+paieechelon=إيكيلون
+paiecnss=رقم CNSS
+
+
+
+SetupSavedpaie=التكوين المحفوظ
+Watermarkphoto=صورة العلامة المائية
+NewPaieRule=قاعدة دفع جديدة
+NewPaieRule2=قانون جديد
+listofpaie=قائمة الرواتب
+
+
+
+
+
+
+
+
+
+#--------------------------------------------------------- 
+paieIban_Rib=ايبان / ضلع
+paieEmploi=وظيفة
+paieStatut_professionnel=الحاله المهنية
+paieNiveau=مستوى
+paieEntree=مدخل
+paieConvention_collective=إتفاقية جماعية
+paieElements_de_paie=دفع البنود
+paieA_deduire=للاستنتاج
+paieA_payer=للدفع
+paieCharges_patronales=مساهمات صاحب العمل
+paietexte_en_gras=نص عريض
+paieTotal_des_Cotisations_contributions=مجموع المستحقات والاشتراكات
+paieNet_a_payer_avant_impot=صافي مستحق الدفع قبل ضريبة الدخل
+
+paieNet_paye=صافي المدفوع
+paieHeures=ساعات
+paieHeures_suppl=متأخر , بعد فوات الوقت
+paieBrut=خام
+paie_Plafond_S=سقف SS
+paieNet_imposable=صافي الخاضع للضريبة
+paiee_Ch_patronales=الفصل أصحاب العمل.
+paieCout_global=التكلفة العالمية
+paieTotal_verse=مجموع المبالغ المدفوعة
+paieAllegements=التخفيضات
+paieMensuel=شهريا
+paieAnnuel=سنوي
+paieRepos_R=بقية R
+paieAcquis=مكتسب
+paiePris=مأخوذ
+paieSolde=يدفع
+paieSalaire_brut=إجمالي الراتب
+paieCumuls=تراكمات
+paieJours_travailles=عملت أيام
+paieAvantages_en_nature=امتيازات طبيعية
+
+paiedolibarrelepaie=نموذج قسيمة الراتب
+paieFranceModel=فرنسا
+paieCamerounModel=الكاميرون
+paieCote_d_ivoireModel=ساحل العاج
+
+
+paietipfooter_france=من أجل مصلحتك ، ولمساعدتك على تأكيد حقوقك ، احتفظ بإيصال الدفع هذا لفترة غير محددة. مزيد من المعلومات:www.service-public.fr
+paietipfooter_cameroun=لمساعدتك في المطالبة بحقوقك ، احتفظ بإيصال الدفع هذا إلى أجل غير مسمى.
+
+
+
+
+
+
+paiesituation_f=الوضع و.
+paienbrenfants=عدد الاطفال
+paieMarie=متزوجة)
+paieCelibataire=عازب
+paieDivorce=مطلقة)
+paieCouple=زوج
+paiedolibarrsituM=م
+paiedolibarrsituC=ضد
+paiedolibarrsituCPLE=CPLE
+paiedolibarr_comment=تعليق
+
+
+
+
+#--------------------------------------------------------- 
+paieSalaireBrut=إجمالي الراتب
+paieMontant_formule=المبلغ المحسوب
+paieForm=الخوارزمية
+paieSBNetAPayer=الراتب الإجمالي وصافي الراتب وصافي الراتب الواجب دفعهما
+paieSalaireNet=صافي الراتب
+paieAvailableVariables=المتغيرات المتاحة
+paieOthersAvailableVariables=المتغيرات الأخرى المتاحة
+paieyearsincompany=عدد سنوات العمل
+RETENUES=الخصومات
+INDEMNITES=البدلات
+AUTRESRETENUES=حسومات أخرى
+paieGenerategestiondepaie=إنشاء إدارة كشوف المرتبات
+paiegestiondepaie=إدارة الرواتب
+paieParts=الوحدات
+paieFullname=الإسم واللقب
+
+
+
+#--------------------------------------------------------- Not translated
+Adressedusalarie=عنوان الموظف
+paiecin=رقم بطاقة التعريف الوطنية.
+paiecimr=رقم  CI.M.R.
+paiePaymentRule=طريقة الدفع
+SalaireBrutImposable=الراتب الإجمالي الخاضع للضريبة
+paietexte_showcumul=تراكمي
+paietexte_showdefault=أضف إلى كشوف المرتبات بشكل افتراضي
+IRBrut=الخام IR
+ChargeFamille=عبء الأسرة
+IRNet=صافي IR
+TaxSociale=ضريبة اجتماعية
+AvanceSurSalaire=سلفة يوم الدفع
+AvanceRetenue=مقدما / حجب
+NbreOuTaux=العدد أو المعدل
+PayrollJournal=مجلة الرواتب
+dupliclignesPaies=نسخة مكررة من رواتب الشهر السابق
+
+Certificat=شهادة
+certificat=شهادة
+worksite=مكان العمل
+Rubriques=
+Gains=ربح
+Retenues=استقطاعات 
+Cumul=تراكم
+retenus=اجمالي الخصومات
+
+
+createsalary=توليد الراتب
+CreatedSalary=الحصول على راتب من كشف الراتب.
+Confirm_Createdsalary=هل تريد الحصول على راتب للموظف ٪s من الشهر ٪s؟
+Confirm_CreatedAllSalary=هل تريد الحصول على راتب الموظفين عن شهر ٪s؟
+SalarySaved= تم إنشاء راتب الموظف ٪s بنجاح
+Error_RecordAlreadyInAccountingDeletionNotPossible=خطأ ، تم بالفعل نقل ٪s من العناصر إلى المحاسبة ، والحذف غير ممكن
+
+salaryscall=مقياس الراتب.
+Degre=درجة.
+
+RecordCreatedAllSuccessfully=تم إنشاء 10 سجلات بنجاح.
+yearsofposition=فترة رتبة الموظف بالسنوات.

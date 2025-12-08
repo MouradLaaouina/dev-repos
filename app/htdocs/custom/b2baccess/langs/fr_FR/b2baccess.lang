@@ -1,0 +1,4 @@
+ModuleB2baccessName=Acces B2B
+ModuleB2baccessDesc=Ajoute un droit pour autoriser l acces a l application B2B
+ModuleB2baccessDescLong=Expose un droit pour autoriser explicitement les utilisateurs ou groupes Dolibarr a acceder a l application B2B externe
+B2BAccessPermission=Acces a l application B2B

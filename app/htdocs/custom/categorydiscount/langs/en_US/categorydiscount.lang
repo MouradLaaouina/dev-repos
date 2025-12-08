@@ -1,0 +1,7 @@
+ModuleCategorydiscountName=Category Discount
+ModuleCategorydiscountDesc=Apply automatic discounts based on customer and product category
+CategoryDiscountSetup=Category/product discounts
+CategoryDiscountMissingCategory=Please choose a product category
+CategoryDiscountMissingDiscount=Please enter a discount greater than zero
+CategoryDiscountRuleCreated=Rule saved
+CategoryDiscountRuleDeleted=Rule removed

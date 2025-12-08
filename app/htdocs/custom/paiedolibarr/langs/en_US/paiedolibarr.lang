@@ -1,0 +1,257 @@
+Module1909671820Name=Payroll
+Module1909671820Desc=Payrolls management
+
+paiedolibarrSetup = Payroll module setup
+paiedolibarrAbout = About Payroll
+BackToModuleList = Back to the list of modules
+paiedolibarr=Payroll
+
+ExtraFieldspaiedolibarr=Extrafields 
+
+#---------------------------------------------------------
+paiesemployee=Employee Payrolls
+paiedolibarr2=Employee Payroll
+paiesname=Pay slip name
+paiedolibarremploye=Employee
+paiesalairenet=Net salary
+NewPaie=New payroll
+PAIESLIP=Payroll
+Fiche_de_salaire=Payroll
+paiedolibarrmsgconfirmdelet=Are you sure you want to continue deleting?
+paiecalculdesalaire=Salary calculation
+paieofmonth=Period
+paiedolibarr_employe=Employee
+paiedolibarr_ref=Reference
+paiesdatepay=Payment date
+paielist=Employee Payrolls
+paieadd=New
+paierules=Paie rules
+BASIQUE=Basic
+BRUT=Gross
+COTISATION=Contribution
+NET=Net
+OTHER=Other
+ExempleCondition=Condition Example
+ExempleFormuleCalcul=Examples Algorithm
+conditionexemple=(logic_test) ? (value_if_true) : (value_if_false)
+paieshowafterpoint=Number of digits after the decimal point
+
+
+paieCode=Code
+paieDesignation=Designation
+paieBase=Base
+paieTaux=Rate
+paieSalariale_Patronale=Salary / Boss
+paieRetenu_Gain=Retained / Gain
+paieTotal=Total
+paieCategorie=Category
+
+paieMontant_de_base=Basic amount
+paiePart_par_defaut=Default share
+paieCalcule_automatiquement=Automatically calculated
+paieMontant_fixe=Fixed amount
+paieSalaire_de_base=Base salary
+paieSalaire_Brut_ImposableC=Taxable Gross Salary
+paieSalaire_Brut_Imposable=Gross Salary
+paieSalariale=Salary
+paiePatronale=Employer
+paieGainc=Gain
+paieGain=Gain (+)
+paieRetenu=Retained (-)
+paieGainSigne=+
+paieRetenuSigne=-
+ChooseAnEmployee=Please choose an employee
+
+
+paieBulletin_de_paie=Payroll
+paieBulletin_de_salaire=Payroll
+paiePeriode=Period
+paiePaiement_le=Payment on
+paiePar=By
+paieMatricule=Registration number
+paieSituation_F=F. Situation
+paieNbre_enfants=Nbr of children
+paiePart_IGR=Part IGR
+paieAnciennete=Seniority
+paieN_de_securite_sociale=Social Security N°
+paieEmploi_occupe=Current job
+paieQualification=Qualification
+paieNbre_Jrs=Nbr of days
+paieDate_d_embauche=Hiring date
+paieAcquis=Acquired
+paieReste_a_prendre=Remains to be taken
+paiePrix=Price
+paieRepos_comp=Comp. rest
+paieConges=Leave
+paieDates_de_conges=Holiday dates
+paiedu=from
+paieau=to
+paieCommentaire=Comment
+paieNombre=Number
+paiePart_salariale=Wage share
+paiePart_patronale=Employer's share
+paieRetenue=Retenue
+paieTotal_des_Cotisations=Total Contributions
+paieSalaire_de_base=Base salary
+paieCharges_salariales=Wage costs
+paieCharges_patronales=Employer contributions
+paieRetenus=Retained
+paieTransports=Transportation
+paieNet_a_payer=Net to pay
+paietipfooter=To help you assert your rights, keep this payroll indefinitely.
+paieSignature_employe=Employee signature
+paieCachet_et_signature_employeur=Employer's stamp and signature
+paiePrintFile=Print
+
+
+
+
+
+
+
+
+
+
+
+
+#--------------------------------------------------------- User
+beginpaiedolibarr2=Payroll
+endpaiedolibarr2=---
+paiematricule=Registration number
+paiezone=Zone
+paiecategorie=Category
+paieechelon=Echelon
+paiecnss=Social S. number
+
+
+
+SetupSavedpaie = Configuration enregistrée
+Watermarkphoto=Watermark photo
+NewPaieRule=New Payroll Rule
+NewPaieRule2=New rule
+listofpaie=Payroll list
+
+
+
+
+
+
+
+
+
+#--------------------------------------------------------- 
+paieIban_Rib=Iban / Rib
+paieEmploi=Employment
+paieStatut_professionnel=Professional status
+paieNiveau=Level
+paieEntree=Entry
+paieConvention_collective=Collective agreement
+paieElements_de_paie=Paie elements
+paieA_deduire=To deduct
+paieA_payer=To pay
+paieCharges_patronales=Employer contributions
+paietexte_en_gras=Bold text
+paieTotal_des_Cotisations_contributions=Total contributions
+paieNet_a_payer_avant_impot=Net payable before income tax
+
+paieNet_paye=Net paid
+paieHeures=Hours
+paieHeures_suppl=Additional hours
+paieBrut=Brut
+paie_Plafond_S=S.S. Ceiling
+paieNet_imposable=Net taxable
+paiee_Ch_patronales=Employer cont.
+paieCout_global=Global cost
+paieTotal_verse=Total paid
+paieAllegements=Reliefs
+paieMensuel=Monthly
+paieAnnuel=Annual
+paieRepos_R=Repos R
+paieAcquis=Acquired
+paiePris=Taken
+paieSolde=Balance
+paieSalaire_brut=Gross salary
+paieCumuls=Cumulative
+Cumul=Cumulation
+paieJours_travailles=Worked days
+paieAvantages_en_nature=Benefits in kind
+
+paiedolibarrelepaie=Payroll template
+paieFranceModel=France
+paieCamerounModel=Cameroon
+paieCote_d_ivoireModel=Ivory Coast
+
+
+paietipfooter_france=In your interest, and to help you assert your rights, keep this payroll indefinitely. Further information : www.service-public.fr
+paietipfooter_cameroun=To help you make your rights, keep this payroll indefinitely.
+
+
+
+
+
+paiesituation_f=F. Situation
+paienbrenfants=Nbr of children
+paieMarie=Married
+paieCelibataire=Single
+paieDivorce=Divorced
+paieCouple=Couple
+paiedolibarrsituM=M
+paiedolibarrsituC=S
+paiedolibarrsituCPLE=CPLE
+paiedolibarr_comment=Comment
+
+
+#--------------------------------------------------------- 
+paieSalaireBrut=Gross Salary
+paieMontant_formule=Calculated amount
+paieForm=Algorithm
+paieSBNetAPayer=Gross salary & Net salary & Net to pay
+paieSalaireNet=Net salary
+paieAvailableVariables=Available variables
+paieOthersAvailableVariables=Other available variables
+paieyearsincompany=Number of years in the company
+RETENUES=Deductions
+INDEMNITES=Indemnities
+AUTRESRETENUES=Other deductions
+paieGenerategestiondepaie=Generate payroll management
+paiegestiondepaie=Payroll management
+paieParts=Parts
+paieFullname=Full Name (s)
+
+
+
+#--------------------------------------------------------- 
+Adressedusalarie=Address of employee
+paiecin=C.I.N.
+paiecimr= CI.M.R number
+paiePaymentRule=Payment method
+SalaireBrutImposable=Gross Taxable Salary
+paietexte_showcumul=Cumulative
+paietexte_showdefault= Add default to payroll
+IRBrut=IR gross
+ChargeFamille=Family charge
+IRNet=IRNet
+TaxSociale=Social tax
+AvanceSurSalaire=Advance on salary
+AvanceRetenue=Advance / Hold
+NbreOuTaux=Number or rate
+worksite=Work site
+Certificat=Certificat
+certificat=Certificat
+worksite=Workplace
+Rubriques=Headings
+retenus=Total Retained
+
+createsalary=Salary generation.
+CreatedSalary=Generated a salary from the salary slip
+Confirm_Createdsalary=Would you like to get a salary for the employee %s in the %sth month?
+Confirm_CreatedAllSalary=Do you want to generate employee salary in %s month?
+SalarySaved=%s employee salaries have been successfully generated
+Error_RecordAlreadyInAccountingDeletionNotPossible=Error, %s records are already transferred to accounting, deletion is not possible
+
+salaryscall=Salary scall 
+Degre=Degree
+newline=new line
+
+RecordCreatedAllSuccessfully=%s records successfully created
+yearsofposition=Employee rank period by years

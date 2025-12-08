@@ -1,0 +1,142 @@
+stages:
+  - build
+  - test
+  - deploy
+  - rollback
+
+variables:
+  # Management VM
+  MANAGEMENT_HOST: "management"
+  MANAGEMENT_IP: "192.168.1.11"
+  MANAGEMENT_USER: "ubuntu"
+
+  # Environnements cibles
+  DEV_HOST: "dev"
+  DEV_IP: "192.168.1.12"
+  DEV_USER: "ubuntu"
+
+  TEST_HOST: "test"
+  TEST_IP: "192.168.1.13"
+  TEST_USER: "ubuntu"
+
+  PROD_HOST: "prod"
+  PROD_IP: "192.168.1.16"
+  PROD_USER: "ubuntu"
+
+# -----------------------------
+# Build 
+# -----------------------------
+build_job:
+  stage: build
+  tags: [shell]
+  script:
+    - echo "Build"
+
+# -----------------------------
+# Test
+# -----------------------------
+test_job:
+  stage: test
+  tags: [shell]
+  script:
+    - echo "Test"
+
+# -----------------------------
+# Deploy
+# -----------------------------
+deploy:
+  stage: deploy
+  tags: [shell]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "develop" && $CI_PIPELINE_SOURCE == "push"'
+      variables:
+        TARGET_VM: "dev"
+        TARGET_VM_IP: $DEV_IP
+        TARGET_VM_USER: $DEV_USER
+        BRANCH: "develop"
+
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "staging"'
+      variables:
+        TARGET_VM: "test"
+        TARGET_VM_IP: $TEST_IP
+        TARGET_VM_USER: $TEST_USER
+        BRANCH: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
+
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "production"'
+      variables:
+        TARGET_VM: "prod"
+        TARGET_VM_IP: $PROD_IP
+        TARGET_VM_USER: $PROD_USER
+        BRANCH: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
+
+    - when: never
+
+  before_script:
+    - mkdir -p ~/.ssh
+    - echo "$ANSIBLE_SSH_KEY_B64" | base64 -d > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+
+    # Copier la clé privée sur management
+    - scp -o StrictHostKeyChecking=no ~/.ssh/id_rsa ${MANAGEMENT_USER}@${MANAGEMENT_IP}:~/.ssh/id_rsa
+    - ssh ${MANAGEMENT_USER}@${MANAGEMENT_IP} "chmod 600 ~/.ssh/id_rsa"
+
+    # Config SSH sur management pour les VMs
+    - |
+      ssh ${MANAGEMENT_USER}@${MANAGEMENT_IP} "cat > ~/.ssh/config <<EOF
+      Host ${DEV_HOST}
+        HostName ${DEV_IP}
+        User ${DEV_USER}
+        IdentityFile ~/.ssh/id_rsa
+        StrictHostKeyChecking no
+
+      Host ${TEST_HOST}
+        HostName ${TEST_IP}
+        User ${TEST_USER}
+        IdentityFile ~/.ssh/id_rsa
+        StrictHostKeyChecking no
+
+      Host ${PROD_HOST}
+        HostName ${PROD_IP}
+        User ${PROD_USER}
+        IdentityFile ~/.ssh/id_rsa
+        StrictHostKeyChecking no
+      EOF"
+
+    # Générer inventory.ini localement pour l'export en artifact
+    - echo -e "[target]\n${TARGET_VM} ansible_host=${TARGET_VM_IP} ansible_user=${TARGET_VM_USER}" > inventory.ini
+
+    # Envoyer inventory.ini sur management
+    - scp inventory.ini ${MANAGEMENT_USER}@${MANAGEMENT_IP}:/home/ubuntu/a2s-ansible/inventory.ini
+    - ssh ${MANAGEMENT_USER}@${MANAGEMENT_IP} "ssh-keyscan -H ${TARGET_VM_IP} >> ~/.ssh/known_hosts"
+
+  script:
+    - ssh ${MANAGEMENT_USER}@${MANAGEMENT_IP} "cd /home/ubuntu/a2s-ansible && ansible-playbook -i inventory.ini playbooks/deploy.yml --extra-vars 'branch=${BRANCH} gitlab_pat=${GITLAB_PAT} gitlab_url=${CI_SERVER_HOST}'"
+
+  artifacts:
+    paths:
+      - inventory.ini
+    expire_in: 1 day
+
+# -----------------------------
+# Rollback manuel
+# -----------------------------
+rollback:
+  stage: rollback
+  when: manual
+  tags: [shell]
+  dependencies:
+    - deploy
+  before_script:
+    - mkdir -p ~/.ssh
+    - echo "$ANSIBLE_SSH_KEY_B64" | base64 -d > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+
+    # Copier la clé privée sur management
+    - scp -o StrictHostKeyChecking=no ~/.ssh/id_rsa ${MANAGEMENT_USER}@${MANAGEMENT_IP}:~/.ssh/id_rsa
+    - ssh ${MANAGEMENT_USER}@${MANAGEMENT_IP} "chmod 600 ~/.ssh/id_rsa"
+
+    # Réutiliser inventory.ini généré en deploy
+    - scp inventory.ini ${MANAGEMENT_USER}@${MANAGEMENT_IP}:/home/ubuntu/a2s-ansible/inventory.ini
+
+  script:
+    - ssh ${MANAGEMENT_USER}@${MANAGEMENT_IP} "cd /home/ubuntu/a2s-ansible && ansible-playbook -i inventory.ini playbooks/rollback.yml"

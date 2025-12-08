@@ -1,0 +1,115 @@
+# Module ExportPaie
+Module1909671900Name=Export Paie
+Module1909671900Desc=Export des données de paie vers CNSS et CIMR
+
+# Menu
+ExportPaie=Export Paie
+ExportCNSS=Export CNSS (e-BDS)
+ExportCIMR=Export CIMR
+
+# Page principale
+ExportPaieDescription=Ce module permet d'exporter les données de paie vers les organismes compétents (CNSS et CIMR) selon les cahiers des charges officiels.
+SelectOrganisme=Sélectionner l'organisme
+SelectPeriode=Sélectionner la période
+ExportData=Exporter les données
+
+# CNSS
+CNSSExport=Export CNSS (e-BDS)
+CNSSPreetabli=Fichier préétabli CNSS
+ImportPreetabli=Importer le préétabli
+PreetabliImported=Préétabli importé avec succès
+PreetabliNotFound=Fichier préétabli non trouvé
+GenerateBDS=Générer le fichier BDS
+GenerateBDSComplementaire=Générer un BDS complémentaire
+BDSGenerated=Fichier BDS généré avec succès
+BDSPrincipal=Déclaration principale
+BDSComplementaire=Déclaration complémentaire
+NumAffilie=Numéro d'affilié CNSS
+PeriodeBDS=Période (AAAAMM)
+NbrSalaries=Nombre de salariés
+NbrEntrants=Nombre d'entrants
+DownloadBDS=Télécharger le fichier BDS
+PreviewBDS=Prévisualiser les données
+
+# CIMR
+CIMRExport=Export CIMR
+NumAdherent=Numéro d'adhérent CIMR
+Trimestre=Trimestre
+Annee=Année
+T1=T1 (Janvier - Mars)
+T2=T2 (Avril - Juin)
+T3=T3 (Juillet - Septembre)
+T4=T4 (Octobre - Décembre)
+RegimeCIMR=Régime CIMR
+AlKamil=Al Kamil
+AlMounassib=Al Mounassib (PME)
+TCNSS=TCNSS (2 tranches)
+CategorieCIMR=Catégorie
+TauxCotisation=Taux de cotisation
+GenerateCIMR=Générer le fichier CIMR
+CIMRGenerated=Fichier CIMR généré avec succès
+DownloadCIMR=Télécharger le fichier CIMR
+
+# Données salarié
+MatriculeCIMR=Matricule CIMR
+MatriculeCNSS=Matricule CNSS
+NumCNIE=N° CNIE
+NumInterne=N° intérieur
+DateAffiliation=Date d'affiliation
+DateNaissance=Date de naissance
+SituationFamiliale=Situation de famille
+Celibataire=Célibataire
+Marie=Marié(e)
+Divorce=Divorcé(e)
+Veuf=Veuf/Veuve
+NbrEnfants=Nombre d'enfants
+SalaireTrimestriel=Salaire trimestriel
+SalaireSoumis=Salaire soumis à cotisation
+
+# Messages
+NoDataToExport=Aucune donnée à exporter pour cette période
+ExportSuccess=Export réalisé avec succès
+ExportError=Erreur lors de l'export
+FileGenerated=Fichier généré
+ValidationErrors=Erreurs de validation
+MissingData=Données manquantes
+InvalidFormat=Format invalide
+ConfigureCNSS=Veuillez configurer le numéro d'affilié CNSS
+ConfigureCIMR=Veuillez configurer le numéro d'adhérent CIMR
+
+# Configuration
+ExportPaieSetup=Configuration Export Paie
+CNSSSettings=Paramètres CNSS
+CIMRSettings=Paramètres CIMR
+CNSSNumAffilie=Numéro d'affilié CNSS
+CNSSPlafond=Plafond CNSS (en DH)
+CIMRNumAdherent=Numéro d'adhérent CIMR
+DefaultRegime=Régime par défaut
+DefaultCategorie=Catégorie par défaut
+DefaultTaux=Taux de cotisation par défaut
+
+# Boutons
+Import=Importer
+Generate=Générer
+Download=Télécharger
+Preview=Prévisualiser
+Export=Exporter
+Cancel=Annuler
+Validate=Valider
+Save=Enregistrer
+
+# Erreurs
+ErrorImportPreetabli=Erreur lors de l'import du préétabli
+ErrorGenerateBDS=Erreur lors de la génération du fichier BDS
+ErrorGenerateCIMR=Erreur lors de la génération du fichier CIMR
+ErrorNoData=Aucune donnée de paie trouvée pour cette période
+ErrorMissingConfig=Configuration incomplète
+ErrorInvalidPeriod=Période invalide
+ErrorFileWrite=Impossible d'écrire le fichier
+
+# Aide
+HelpCNSS=Le fichier BDS doit être généré à partir du préétabli fourni par la CNSS. Importez d'abord le préétabli avant de générer votre déclaration.
+HelpCIMR=Les déclarations CIMR sont trimestrielles. Le salaire déclaré est la somme des 3 mois du trimestre.
+HelpPreetabli=Le préétabli contient les allocations familiales et la liste des salariés connus par la CNSS.
+HelpBDSComplementaire=Cochez cette case pour générer une déclaration complémentaire (corrections ou ajouts après la déclaration principale).
+ErrorFileUpload=Erreur lors du téléchargement du fichier

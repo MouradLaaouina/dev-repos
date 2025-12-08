@@ -1,0 +1,57 @@
+# Dolibarr language file - en_US - deliverymen
+
+# Module
+Module122189900Name = Deliverymen
+Module122189900Desc = Deliverymen management and shipment assignment
+DeliverymenDesc = Assign deliverymen to shipments and export daily reports
+
+# Permissions
+Permission1221899001 = View delivery assignments
+Permission1221899002 = Assign deliveryman
+Permission1221899003 = Export delivery reports
+
+# Menu
+Livreurs = Deliverymen
+EtatJournalier = Daily Report
+
+# General
+Deliveryman = Deliveryman
+Deliverymen = Deliverymen
+DeliveryAssignment = Delivery Assignment
+DeliveryAssignmentsList = Assignments List
+AssignDeliveryman = Assign Deliveryman
+NoDeliverymanAssigned = No deliveryman assigned
+CurrentDeliveryman = Current Deliveryman
+DeliveryDate = Delivery Date
+AssignmentDate = Assignment Date
+DeliveryDoneDate = Delivery Done Date
+ChangeStatus = Change Status
+
+# Status
+StatusPending = Pending
+StatusInProgress = In Progress
+StatusDelivered = Delivered
+StatusFailed = Failed
+
+# Actions
+DeliverymanAssigned = Deliveryman assigned successfully
+DeliverymanRemoved = Assignment removed
+StatusUpdated = Status updated
+RemoveAssignment = Remove Assignment
+ConfirmRemoveAssignment = Are you sure you want to remove this assignment?
+
+# Daily Report
+DailyReport = Daily Report
+DeliveriesFor = Deliveries for
+NoDeliveriesForThisDate = No deliveries scheduled for this date
+TotalDeliveries = Total Deliveries
+TotalDelivered = Total Delivered
+Deliveries = deliveries
+Summary = Summary
+ExportCSV = Export CSV
+ExportPDF = Export PDF
+SignatureDeliveryman = Deliveryman Signature
+SignatureResponsible = Responsible Signature
+
+# Errors
+ErrorSelectDeliveryman = Please select a deliveryman

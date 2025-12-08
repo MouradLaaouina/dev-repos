@@ -1,0 +1,297 @@
+Module1909671820Name=Paie Dolibarr
+Module1909671820Desc=Gestion des paie Dolibarr
+
+BackToModuleList=Retour à la liste des modules
+paiedolibarrSetup=Configuration du module Paie
+paiedolibarrAbout=A propos du module Paie
+paiedolibarr=Paie
+
+ExtraFieldspaiedolibarr=Attributs supplémentaires
+
+#---------------------------------------------------------
+paiesemployee=Paie Dolibarr
+paiedolibarr2=Paie de l'employé
+paiesname=Nom de paie
+paiedolibarremploye=Employé
+paiesalairenet=Salaire net
+NewPaie=Nouveau paie
+PAIESLIP=PAIE
+Fiche_de_salaire=Fiche de paie
+paiedolibarrmsgconfirmdelet=Êtes-vous sûr de vouloir continuer la suppression?
+paiecalculdesalaire=Calcul de paie
+paieofmonth=Période
+paiedolibarr_employe=Employée
+paiedolibarr_ref=Référence
+paiesdatepay=Date de paiement
+paielist=Paie Dolibarr
+paieadd=Nouveau
+paierules=Règles de paie
+BASIQUE=Basique
+BRUT=Brut
+COTISATION=Cotisation
+NET=Net
+OTHER=Autre
+ExempleCondition=Exemple de condition
+ExempleFormuleCalcul=Exemples de formule de calcul
+conditionexemple=(test_logique) ? (valeur_si_vrai) : (valeur_si_faux)
+paieshowafterpoint=Nombre de chiffres après la virgule
+
+
+paieCode=Code
+paieDesignation=Désignation
+paieBase=Base
+paieTaux=Taux
+paieSalariale_Patronale=Salariale / Patronale
+paieRetenu_Gain=Retenu (-) / Gain (+)
+paieTotal=Total
+paieCategorie=Catégorie
+
+paieMontant_de_base=Montant de base
+
+paiePart_par_defaut=Part par défaut
+paieCalcule_automatiquement=Calculé automatiquement
+paieMontant_fixe=Montant fixe
+paieSalaire_de_base=Salaire de base
+paieSalaire_Brut_ImposableC=Salaire Brut Imposable
+paieSalaire_Brut_Imposable=Salaire Brut
+paieSalariale=Salariale
+paiePatronale=Patronale
+paieGainc=Gain
+paieGain=Gain (+)
+paieRetenu=Retenu (-)
+paieGainSigne=+
+paieRetenuSigne=-
+ChooseAnEmployee=Merci de choisir un(e) employé(e)
+
+
+paieBulletin_de_paie=Bulletin de paie
+paieBulletin_de_salaire=Paie de salaire
+paiePeriode=Période de paie 
+paiePaiement_le=Paiement le
+paiePar=Par
+paieMatricule=Matricule
+paieSituation_F=Situation F.
+paieNbre_enfants=Nbre enfants
+paiePart_IGR=Part IGR
+paieAnciennete=Ancienneté
+paieN_de_securite_sociale=N° de sécurité sociale
+paieEmploi_occupe=Emploi occupé
+paieQualification=Qualification
+paieNbre_Jrs=Nbre Jrs
+paieDate_d_embauche=Date d'embauche
+paieAcquis=Acquis
+paieReste_a_prendre=Reste à prendre
+paiePrix=Prix
+paieRepos_comp=Repos comp.
+paieConges=Congés
+paieDates_de_conges=Dates de congés
+paiedu=du
+paieau=au
+paieCommentaire=Commentaire
+paieNombre=Nombre
+paiePart_salariale=Part salariale
+paiePart_patronale=Part patronale
+paieRetenue=Retenue
+paieTotal_des_Cotisations=Total des Cotisations
+paieSalaire_de_base=Salaire de base
+paieCharges_salariales=Charges salariales
+paieCharges_patronales=Charges patronales
+paieRetenus=Retenus
+paieTransports=Transports
+paieNet_a_payer=Net à payer
+paietipfooter=Pour vous aider à faire valoir vos droits, conservez ce bulletin de paie sans limitation de durée.
+paieSignature_employe=Signature employé(e)
+paieCachet_et_signature_employeur=Cachet et signature employeur
+paieCachet_et_signature=Cachet et signature
+paiePrintFile=Imprimer
+
+
+#--------------------------------------------------------- User
+beginpaiedolibarr2=Paie
+endpaiedolibarr2=---
+paiematricule=Matricule
+paiezone=Zone
+paiecategorie=Catégorie
+paieechelon=Echelon
+paiecnss=N° CNSS
+
+
+
+SetupSavedpaie=Configuration enregistrée
+Watermarkphoto=Photo en filigrane
+NewPaieRule=Nouvelle règle de paie
+NewPaieRule2=Nouvelle règle
+listofpaie=Liste des paies
+
+
+
+
+
+
+
+
+
+#--------------------------------------------------------- 
+paieIban_Rib=Iban / Rib
+paieEmploi=Emploi
+paieStatut_professionnel=Statut professionnel
+paieNiveau=Niveau
+paieEntree=Entrée
+paieConvention_collective=Convention collective
+paieElements_de_paie=Eléments de paie
+paieA_deduire=A déduire
+paieA_payer=A payer
+paieCharges_patronales=Charges patronales
+paietexte_en_gras=Texte en gras
+paieTotal_des_Cotisations_contributions=Total des cotisations et contributions
+paieNet_a_payer_avant_impot=Net à payer avant impôt sur le revenu
+
+paieNet_paye=Net payé
+paieHeures=Heures
+paieHeures_suppl=Heures suppl.
+paieBrut=Brut
+paie_Plafond_S=Plafond S.S.
+paieNet_imposable=Net imposable
+paiee_Ch_patronales=Ch. patronales
+paieCout_global=Coût Global
+paieTotal_verse=Total versé
+paieAllegements=Allègements
+paieMensuel=Mensuel
+paieAnnuel=Annuel
+paieRepos_R=Repos R
+paieAcquis=Acquis
+paiePris=Pris
+paieSolde=Solde
+paieSalaire_brut=Salaire brut
+Cumul=Cumul
+paieCumuls=Cumuls
+paieJours_travailles=Jours travailles
+paieAvantages_en_nature=Avantages en nature
+
+paiedolibarrelepaie=Modèle de bulletin de paie
+paieFranceModel=France
+paieCamerounModel=Cameroun
+paieCote_d_ivoireModel=Côte d'Ivoire
+
+
+paietipfooter_france=Dans votre intérêt, et pour vous aider à faire valoir vos droits, conservez ce bulletin de paie sans limitation de durée. Informations complémentaires : www.service-public.fr
+paietipfooter_cameroun=Pour vous aider à faire vos droits, conservez ce bulletin de paie sans limitation de durée.
+
+
+
+
+
+
+paiesituation_f=Situation F.
+paienbrenfants=Nbre enfants
+paieMarie=Marié(e)
+paieCelibataire=Célibataire
+paieDivorce=Divorcé(e)
+paieCouple=Couple
+paiedolibarrsituM=M
+paiedolibarrsituC=C
+paiedolibarrsituCPLE=CPLE
+paiedolibarr_comment=Commentaire
+
+
+
+
+#--------------------------------------------------------- 
+paieSalaireBrut=Salaire brut
+paieMontant_formule=Montant calculé
+paieForm=Formule de calcul
+paieSBNetAPayer=Salaire brut & Salaire Net & Net à payer
+paieSalaireNet=Salaire Net
+paieAvailableVariables=Variables disponibles
+paieOthersAvailableVariables=Autres Variables disponibles
+paieyearsincompany=Nombre d'année dans l'entreprise
+RETENUES=Retenues
+INDEMNITES=Indemnités
+AUTRESRETENUES=Autres retenues
+paieGenerategestiondepaie=Générer la gestion des paies
+paiegestiondepaie=Gestion de paie
+paieParts=Parts
+paieFullname=Nom et Prénom
+
+
+
+#--------------------------------------------------------- Not translated
+Adressedusalarie=Adresse du salarié
+paiecin=N° C.I.N.
+paiecimr=N° CI.M.R
+paiePaymentRule=Mode de paiement
+SalaireBrutImposable=Salaire Brut Imposable
+paietexte_showcumul=Cumulée
+paietexte_showdefault=Ajouter par défaut à la paie
+IRBrut=IR Brut
+ChargeFamille=Charge de famille
+IRNet=IR Net
+TaxSociale=Tax sociale
+AvanceSurSalaire=Avance sur salaire
+AvanceRetenue=Avance / Retenue
+#NbreOuTaux=Nbre ou taux
+NbreOuTaux=Taux
+PayrollJournal=Journal de paie
+dupliclignesPaies=Dupliquer les paies du mois précédent
+
+Certificat=Certificat
+certificat=Certificat
+worksite=Lieu de travail
+Rubriques=Rubriques
+retenus=Total Retenus
+
+createsalary=Générer salaire 
+CreatedSalary=Générer un salaire à partir du bulletin de paie.
+Confirm_Createdsalary=Voulez vous générer un salaire du employé %s de mois %s?
+Confirm_CreatedAllSalary=Voulez vous générer le salaire des employés de mois %s?
+SalarySaved=%s Salaire d'employée générer avec succès
+Error_RecordAlreadyInAccountingDeletionNotPossible=Erreur, %s éléments sont déjà transférés en comptabilité, la suppression n'est pas possible
+
+
+salaryscall=Échelle salariale
+Degre=Degrée
+newline=Nouvelle ligne
+
+RecordCreatedAllSuccessfully=%s enregistrements créé avec succès
+yearsofposition=Période de grade de l'employé par ans
+paiedolibarrmodelepaie=Modèle de bulletin de paie
+Bydefault=Par défaut
+paieGlobetudesModel=Globetudes
+paieGhodbaneModel=GhodBane
+Function=Fonction
+Department=Département
+PaymentDate=Date paiement
+D_ateOfBirth=D. Naissance
+paieDateembauche=D. Embauche
+N_cnss=N° CNSS
+N_cimr=N° CIMR
+paie_Paiement=Paiement
+Pay_period=Période paie
+Rubrique=Rubrique
+WorkDays=Jours trav.
+TaxableWages=Salaire imposable
+SocialContributions=Cotisations sociales
+IGRDeduction=Retenue IGR
+LoanStatus=Situation du prêt
+LeaveStatus=Situation congé
+totalWinnings=Total gains
+TotalWithheld=Total retenues
+BeginningBalance=Solde debut
+AnnualFee=Droit annuel
+AnnualLeave=Conge annuel
+EndBalance=Solde fin
+BeginningMonth=Debut mois
+REMBMonth=Remb. mois
+EndMonth=Fin mois
+PaymentMode=Mode reglement
+netPay=Net a payer
+NBENF=Nb. Enf
+etatcivil=E. Civil
+paienbdaywork=Nombre de Jour de Travail
+Emargement=Emargement
+AmountNet=Montant Net
+paiedolibarrnbmonth=Nombre de mois
+paienbdayabsence=Absence
+numcnss=Numéro CNSS
+PaimentMode=Mode paiement
+matriculefiscal=Matricule fiscale

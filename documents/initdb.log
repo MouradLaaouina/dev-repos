@@ -1,0 +1,33 @@
+ERROR 2002 (HY000): Can't connect to server on 'db' (115)
+ERROR 2002 (HY000): Can't connect to server on 'db' (115)
+ERROR 2002 (HY000): Can't connect to server on 'db' (115)
+ERROR 2002 (HY000): Can't connect to server on 'db' (115)
+ERROR 2002 (HY000): Can't connect to server on 'db' (115)
+--------------
+mysql  Ver 15.1 Distrib 10.11.14-MariaDB, for debian-linux-gnu (x86_64) using  EditLine wrapper
+
+Connection id:		9
+Current database:	
+Current user:		dolibarr@172.18.0.4
+SSL:			Cipher in use is TLS_AES_128_GCM_SHA256
+Current pager:		stdout
+Using outfile:		''
+Using delimiter:	;
+Server:			MySQL
+Server version:		9.5.0 MySQL Community Server - GPL
+Protocol version:	10
+Connection:		db via TCP/IP
+Server characterset:	utf8mb4
+Db     characterset:	utf8mb4
+Client characterset:	latin1
+Conn.  characterset:	latin1
+TCP port:		3306
+Uptime:			5 sec
+
+Threads: 2  Questions: 5  Slow queries: 0  Opens: 119  Flush tables: 3  Open tables: 38  Queries per second avg: 1.000
+--------------
+
+mysql -u dolibarr -pxxxxxx -h db -P 3306 -e "SELECT SCHEMA_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = 'dolibarr';" > /tmp/docker-run-checkdb.result 2>&1
+DB Exists is : dolibarr
+Install.lock Exists is : no
+mysql -u dolibarr -pxxxxxx -h db -P 3306 dolibarr -e "SELECT Q.LAST_INSTALLED_VERSION FROM (SELECT INET_ATON(REPLACE(REPLACE(CONCAT(value, REPEAT('.0', 3 - CHAR_LENGTH(value) + CHAR_LENGTH(REPLACE(value, '.', '')))), '-beta', ''), '-alpha', '')) as VERSION_ATON, value as LAST_INSTALLED_VERSION FROM llx_const WHERE name IN ('MAIN_VERSION_LAST_INSTALL', 'MAIN_VERSION_LAST_UPGRADE') and entity=0) Q ORDER BY VERSION_ATON DESC LIMIT 1" > /tmp/docker-run-lastinstall.result 2>&1

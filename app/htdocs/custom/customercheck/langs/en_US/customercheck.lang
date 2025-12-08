@@ -1,0 +1,42 @@
+# Dolibarr language file - Source file is en_US - customercheck
+
+# Module
+Module122189800Name = Customer Checks
+Module122189800Desc = Warnings before validation (unpaid checks, credit limit exceeded)
+CustomercheckDesc = Warnings before order and proposal validation
+
+# Setup
+CustomercheckSetup = Customer Checks Setup
+CustomercheckAbout = About Customer Checks
+EnableReturnedChecks = Enable unpaid checks verification
+EnableCreditLimit = Enable credit limit verification
+
+# Validation Warnings
+ValidationWarnings = Warning - Customer Checks
+WarningReturnedChecks = This customer has %s unpaid check(s) for a total amount of %s
+WarningCreditLimitExceeded = Credit limit of %s exceeded. Current outstanding: %s + This document: %s = Exceeded by %s
+ConfirmContinueValidation = Do you want to continue despite these warnings?
+ValidationBlocked = Validation blocked - You do not have permission to validate a document with unpaid checks.
+
+# Permissions
+Permission1221898001 = Validate despite unpaid checks
+Permission1221898002 = Lift unpaid check sanction
+
+# Returned Checks Management
+ReturnedChecksList = Returned Checks List
+AddReturnedCheck = Add returned check
+ReturnedCheckCreated = Returned check recorded
+CheckNumber = Check number
+Bank = Bank
+DateCheck = Check date
+DateReturned = Return date
+Reason = Reason
+SanctionStatus = Sanction status
+SanctionActive = Sanction active
+SanctionLifted = Sanction lifted
+LiftSanction = Lift sanction
+ReactivateSanction = Reactivate sanction
+ConfirmLiftSanction = Are you sure you want to lift the sanction for check %s? The customer will be able to order again.
+ConfirmReactivateSanction = Are you sure you want to reactivate the sanction for check %s?
+NoteForLiftingSanction = Note (reason for lifting)
+NotEnoughPermissions = You do not have enough permissions

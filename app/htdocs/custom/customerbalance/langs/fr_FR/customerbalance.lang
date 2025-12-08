@@ -1,0 +1,68 @@
+# Dolibarr language file - Source file is fr_FR - customerbalance
+
+# Module
+Module122189960Name = Etat Financier Client
+Module122189960Desc = Affiche l'état financier complet d'un client dans un seul onglet
+
+# Tab
+EtatFinancier = Etat Financier
+
+# Page titles
+FinancialStatus = Etat Financier
+FinancialSummary = Résumé Financier
+
+# Summary
+TotalInvoiced = Total Facturé
+TotalPaid = Total Encaissé
+TotalCreditNotes = Total Avoirs
+TotalReturns = Total Retours
+Balance = Solde
+RemainToPay = Reste à Payer
+
+# Outstanding
+OutstandingBill = Encours
+OutstandingLimit = Limite d'encours
+OutstandingUsed = Encours Utilisé
+OutstandingAvailable = Encours Disponible
+NoLimit = Pas de limite
+Usage = Utilisation
+
+# Lists
+UnpaidInvoices = Factures Impayées
+RecentPayments = Encaissements Récents
+MorePayments = autres paiements
+CreditNotes = Avoirs
+CustomerReturns = Retours Clients
+Returns = Retours
+
+# Table headers
+Invoices = Factures
+Payments = Paiements
+AmountHT = Montant HT
+AmountTTC = Montant TTC
+AlreadyPaid = Déjà Payé
+RemainderToPay = Reste à Payer
+DateDue = Date Échéance
+PaymentMode = Mode de Paiement
+Numero = Numéro
+Late = En retard
+
+# Filters
+DateFilter = Filtrer par Date
+DateStart = Date Début
+DateEnd = Date Fin
+Filter = Filtrer
+Reset = Réinitialiser
+
+# PDF
+GeneratePDF = Générer PDF
+PDFGenerated = PDF généré avec succès
+PDFCustomerBalance = PDF Etat Financier Client
+GeneratedOn = Généré le
+Preview = Aperçu
+OpenInNewTab = Ouvrir dans un nouvel onglet
+NoDocuments = Aucun document
+
+# Permissions
+Permission1221899601 = Consulter l'état financier client
+Permission1221899602 = Exporter l'état financier en PDF

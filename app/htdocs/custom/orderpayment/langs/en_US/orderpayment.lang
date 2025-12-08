@@ -1,0 +1,69 @@
+# Dolibarr language file - Source file is en_US - orderpayment
+
+# Module
+Module122189600Name = Order Payments
+Module122189600Desc = Allows to register payments directly on sales orders without creating invoices
+OrderPaymentDesc = Allows to register payments directly on sales orders without creating invoices
+
+# Menu
+OrderPaymentMenu = Order Payments
+OrderPaymentList = Payment list
+NewOrderPayment = New order payment
+
+# Card
+OrderPaymentCard = Order payment card
+CreateOrderPayment = Create order payment
+OrderPaymentCreated = Order payment created
+OrderPaymentCanceled = Order payment canceled
+
+# Fields
+LinkedOrders = Linked orders
+SelectOrders = Select orders (Ctrl+click for multiple)
+OrderPaymentAmount = Payment amount
+TotalOrderAmount = Total order amount
+AlreadyPaidOnOrder = Already paid on order
+RemainsToPay = Remains to pay
+BankAccount = Bank account
+SelectBankAccount = Select a bank account to impact treasury
+
+# Status
+OrderPaymentValidated = Validated
+OrderPaymentCancelled = Cancelled
+ReturnedCheck = Returned check
+
+# Buttons
+RegisterOrderPayment = Register payment
+
+# Tab
+TabOrderPayments = Payments
+
+# Messages
+NoOrderPaymentYet = No payment registered on this order
+ConfirmCancelOrderPayment = Are you sure you want to cancel this payment?
+ConfirmReturnedCheck = Are you sure you want to mark this payment as a returned check? This information will be kept in the customer's history.
+OrderFullyPaid = Order fully paid
+OrderPartiallyPaid = Order partially paid (%s)
+OrderNotPaid = Order not paid
+CancelReason = Cancel reason
+IsReturnedCheck = Returned check
+MarkAsReturnedCheck = Mark as returned check
+
+# Returned checks
+ReturnedChecks = Returned checks
+ReturnedChecksCount = Number of returned checks
+ReturnedChecksTotal = Total returned checks
+NoReturnedChecks = No returned checks
+ReturnedCheckWarning = Warning: This customer has %s returned check(s) for a total of %s
+
+# Permissions
+Permission122189600 = Read order payments
+Permission122189601 = Create/Modify order payments
+Permission122189602 = Cancel order payments
+
+# Invoice Payment Cancel
+CancelPayment = Cancel payment
+PaymentCanceled = Payment canceled
+PaymentAlreadyCancelled = This payment has already been cancelled
+PaymentNotFound = Payment not found
+Invoices = Linked invoices
+Back = Back

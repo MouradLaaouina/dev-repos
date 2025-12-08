@@ -1,0 +1,33 @@
+# Dolibarr language file - Source file is en_US - pdfttconly
+
+# PDF Column Headers
+PriceUTTC = U.P. TTC
+TotalTTCShort = Total TTC
+
+# Module
+Module122189700Name = Custom PDFs
+Module122189700Desc = Custom PDF templates (TTC only, contact only)
+PdfTtcOnlyDesc = Custom PDF templates (TTC only, contact only)
+
+# Setup
+PdfTtcOnlySetup = Custom PDFs Setup
+PdfTtcOnlyAbout = About Custom PDFs
+EnableForProposal = Enable for proposals
+EnableForOrder = Enable for orders
+EnableForShipment = Enable for shipments (delivery notes)
+
+# Info
+PdfTtcOnlyInfo = This module adds alternative PDF templates with custom features.
+HowToUse = How to use
+HowToUseInfo = After activating the module, go to the PDF template configuration for each document type and select the desired templates:
+
+# TTC Models
+TtcModelsTitle = TTC only models (without HT or VAT)
+ModelProposal = Proposals: azur_ttc
+ModelOrder = Orders: einstein_ttc
+ModelShipment = Shipments: espadon_ttc
+
+# Contact Only Models
+ContactModelsTitle = Contact name only models
+ModelInvoiceContact = Invoices: crabe_contact
+ModelInvoiceContactDesc = Shows only the contact name (without company address) when a billing contact is selected

@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "d6f03695-6ae0-4f05-a4b1-0a3fe296c524",
+		"name": "API A2S",
+		"description": "# 🌐 Dolibarr Gateway API – Postman Collection\n\nCette collection regroupe l’ensemble des **endpoints Express** utilisés pour tester une **passerelle API** entre une application externe et l’ERP **Dolibarr**.\n\nElle permet notamment :\n\n- ✅ D’envoyer des requêtes authentifiées via un token (`DOLAPIKEY`)\n    \n- ✅ D’interroger les tiers et autres ressources Dolibarr\n    \n- ✅ De valider rapidement le bon fonctionnement de la passerelle\n    \n\n> Cette API ne remplace pas Dolibarr : elle simplifie son accès, sécurise la communication et sert de couche d’abstraction. \n  \n\n---\n\n📌 _N’oubliez pas de renseigner correctement la clé_ `_DOLAPIKEY_` _dans les requêtes pour accéder aux données._\n\nVoir la documentation complete pour plus de details sur les endpoints.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "42620669"
+	},
+	"item": [
+		{
+			"name": "Authentification",
+			"item": [
+				{
+					"name": "Authentification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"login\": \"admin\", \r\n    \"password\": \"admin\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/auth/login",
+						"description": "## 🔐 Authentification\n\nPour utiliser l’API, une clé d’accès Dolibarr (**API Key**) doit être envoyée dans l’en-tête `DOLAPIKEY`.\n\n### Dans Postman\n\n1. Récupérez votre **token Dolibarr** dans l’interface Dolibarr\n    \n2. Dans Postman, collez-le dans l’onglet **Headers** ou directement dans la réponse\n    \n3. Cliquez droit sur la valeur du token\n    \n4. Sélectionnez **“Set as variable”** → `dolapikey`\n    \n\n📌 Cela permet à toute la collection Postman d’utiliser automatiquement cette clé dans les requêtes."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tiers",
+			"item": [
+				{
+					"name": "Liste paginée des tiers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "DOLAPIKEY",
+								"value": "{{dolapikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/thirdparties?page=0&client_type=1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"thirdparties"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "client_type",
+									"value": "1"
+								}
+							]
+						},
+						"description": "## 🧩 Filtrer les tiers par type (`client_type`) — _Endpoint :_ `GET /thirdparties`\n\nLors de l’appel au endpoint `thirdparties` via notre API passerelle, **deux paramètres sont obligatoires** :\n\n| Paramètre | Type | Obligatoire | Rôle |\n| --- | --- | --- | --- |\n| `page` | number | ✅ | Indice de page (pagination) — commence à `0` |\n| `client_type` | number | ✅ | Filtre selon le type de tiers |\n\n### Valeurs autorisées pour `client_type`\n\nCorrespond à la valeur du champ interne **`t.client`** dans Dolibarr :\n\n| Valeur | Signification Dolibarr |\n| --- | --- |\n| **0** | Ni client, ni prospect |\n| **1** | Client uniquement |\n| **2** | Prospect uniquement |\n| **3** | Client **et** prospect |\n\nSi aucun tiers ne correspond au `client_type` fourni, l’API renverra :\n\n``` json\n {\n   \"status\": \"error\"\n }\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Détails d'un tiers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DOLAPIKEY",
+								"value": "{{dolapikey}}",
+								"type": "text"
+							}
+						],
+						"url": "{{baseURL}}/api/thirdparties/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Liste des remises fixes associées",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DOLAPIKEY",
+								"value": "{{dolapikey}}",
+								"type": "text"
+							}
+						],
+						"url": "{{baseURL}}/api/thirdparties/1/fixedamountdiscounts"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produits",
+			"item": [
+				{
+					"name": "Liste des produits",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DOLAPIKEY",
+								"value": "{{dolapikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/products?page=0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Détails d'un produit",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DOLAPIKEY",
+								"value": "{{dolapikey}}",
+								"type": "text"
+							}
+						],
+						"url": "{{baseURL}}/api/products/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Stock d'un produit",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DOLAPIKEY",
+								"value": "{{dolapikey}}",
+								"type": "text"
+							}
+						],
+						"url": "{{baseURL}}/api/products/1/stock"
+					},
+					"response": []
+				},
+				{
+					"name": "Recherche par code-barres",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DOLAPIKEY",
+								"value": "{{dolapikey}}",
+								"type": "text"
+							}
+						],
+						"url": "{{baseURL}}/api/products/products/barcode/12345"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Commandes",
+			"item": [
+				{
+					"name": "Liste des commandes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DOLAPIKEY",
+								"value": "{{dolapikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/orders?page=0&thirdparty_ids=1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "thirdparty_ids",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Détails d'une commande",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DOLAPIKEY",
+								"value": "{{dolapikey}}",
+								"type": "text"
+							}
+						],
+						"url": "{{baseURL}}/api/orders/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Configuration",
+			"item": [
+				{
+					"name": "Types de paiements",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DOLAPIKEY",
+								"value": "{{dolapikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/setup?page=0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"setup"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Devis",
+			"item": [
+				{
+					"name": "Liste des devis",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "DOLAPIKEY",
+								"value": "{{dolapikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/proposal?page=0&thirdparty_ids=1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"proposal"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "thirdparty_ids",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enregistrer un devis",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "DOLAPIKEY",
+								"value": "{{dolapikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"socid\": 1,\r\n  \"date\": \"2025-10-07\",\r\n  \"cond_reglement_id\": 1,\r\n  \"mode_reglement_id\": 1,\r\n  \"note_public\": \"Proposition valable 30 jours.\",\r\n  \"note_private\": \"Client fidèle — offrir 5% de remise s'il valide avant la fin du mois.\",\r\n  \"lines\": [\r\n    {\r\n       \"desc\": \"Maintenance annuelle\",\r\n      \"product_type\": 1,\r\n    \"product_id\": 12,\r\n      \"qty\": 1,\r\n      \"subprice\": 300,\r\n      \"tva_tx\": 20\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/proposal"
+					},
+					"response": []
+				}
+			],
+			"description": "### ✅ Activation du module Propositions commerciales dans Dolibarr\n\nPour utiliser les endpoints liés aux **propositions commerciales** (`/proposals`) depuis Postman ou via l’API, il est nécessaire d’activer le module correspondant dans Dolibarr.\n\n#### Étapes à suivre dans Dolibarr\n\n1. Configuration → Modules/Applications\n    \n2. Propositions commerciales dans Gestion de la relation client (GRC)\n    \n    ✅ Le bouton doit devenir vert.\n    \n3. Utilisateurs & Groupes → \\[Choisir votre utilisateur\\] → Permissions\n    \n4. Vérifier et activer les droits suivants :\n    \n    - ✅ Lire les propositions commerciales\n        \n    - ✅ Créer/modifier les propositions commerciales\n        \n    - ✅ (Optionnel) Supprimer les propositions commerciales\n        \n    - ✅ (Optionnel) Valider / Fermer les propositions commerciales\n        \n5. Déconnexion / reconnexion utilisateur 🔄 pour que les permissions soient appliquées."
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "dolapikey",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

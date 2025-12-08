@@ -1,0 +1,4 @@
+ModuleB2baccessName=B2B Access
+ModuleB2baccessDesc=Provides a permission flag to allow access to the B2B application
+ModuleB2baccessDescLong=Provides a permission flag to authorize Dolibarr users or groups for the external B2B front
+B2BAccessPermission=Access to the B2B application

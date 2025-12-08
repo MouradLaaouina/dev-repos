@@ -1,0 +1,7 @@
+ModuleCategorydiscountName=Remises Catégorie
+ModuleCategorydiscountDesc=Appliquer automatiquement une remise selon le client et la catégorie produit
+CategoryDiscountSetup=Remises par catégorie/tiers
+CategoryDiscountMissingCategory=Choisissez une catégorie produit
+CategoryDiscountMissingDiscount=Indiquez une remise supérieure à zéro
+CategoryDiscountRuleCreated=Règle enregistrée
+CategoryDiscountRuleDeleted=Règle supprimée

@@ -1,0 +1,60 @@
+# --- OS / IDE ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+
+# --- Environnements / Secrets ---
+.env
+.env.*.local
+*.local.env
+*.secret
+*.key
+
+# --- Dépendances / Builds ---
+/vendor/              # si un jour on utilise Composer "vendor"
+node_modules/
+dist/
+build/
+public/build/
+coverage/
+
+# --- Logs / Temp ---
+*.log
+logs/
+tmp/
+temp/
+*.pid
+*.swp
+*.swo
+*.bak
+
+# --- Docker data (persistant local) ---
+docker-data/
+db-data/
+
+# --- Dolibarr spécifiques ---
+# Config runtime (contient des secrets) : on ne commit JAMAIS conf.php
+htdocs/conf/conf.php
+htdocs/conf/conf.php.local
+htdocs/conf/conf.php.backup*
+htdocs/conf/*.cache.php
+
+# Fichiers générés / uploads (statique utilisateur)
+htdocs/documents/
+
+# Modules custom : dossiers de génération internes
+htdocs/custom/*/doc/
+htdocs/custom/*/migrations/
+
+# Installateur et artefacts
+htdocs/install/
+htdocs/install.lock
+
+# Temp / logs Dolibarr (selon config)
+htdocs/logs/
+htdocs/temp/
+
+# Divers
+*.sqlite

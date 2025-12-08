@@ -1,0 +1,69 @@
+# Dolibarr language file - Source file is fr_FR - customerreturn
+
+# Module
+Module122189900Name = Retours Clients
+Module122189900Desc = Gestion des retours clients avec avoir et augmentation stock
+
+# Menu
+CustomerReturn = Bon de retour
+CustomerReturns = Retours clients
+CustomerReturnsList = Liste des retours clients
+NewCustomerReturn = Nouveau bon de retour
+ListCustomerReturns = Liste des bons de retour
+
+# Card
+CustomerReturnCard = Fiche bon de retour
+RefReturn = Référence retour
+DateReturn = Date du retour
+Deliveryman = Livreur
+ReturnLines = Lignes du retour
+AddLine = Ajouter une ligne
+Reason = Motif du retour
+
+# Status
+Draft = Brouillon
+Validated = Validé
+Closed = Clôturé
+Canceled = Annulé
+
+# Actions
+ValidateReturn = Valider le retour
+DeleteReturn = Supprimer le retour
+ConfirmValidateReturn = Êtes-vous sûr de vouloir valider ce bon de retour ?
+ConfirmDeleteReturn = Êtes-vous sûr de vouloir supprimer ce bon de retour ?
+ConfirmDeleteLine = Êtes-vous sûr de vouloir supprimer cette ligne ?
+ReturnValidated = Bon de retour validé avec succès
+CreditNoteWillBeCreated = Un avoir sera automatiquement créé pour le client.
+CreditNoteFromReturn = Avoir créé depuis le bon de retour %s
+CreditNote = Avoir
+
+# Permissions
+Permission1221899001 = Lire les bons de retour
+Permission1221899002 = Créer/modifier les bons de retour
+Permission1221899003 = Valider les bons de retour
+Permission1221899004 = Supprimer les bons de retour
+
+# Errors
+ErrorReturnAlreadyValidated = Ce bon de retour est déjà validé
+ErrorReturnHasNoLines = Le bon de retour doit contenir au moins une ligne
+ErrorCannotDeleteValidatedReturn = Impossible de supprimer un bon de retour validé
+ErrorCannotSetValidatedReturnToDraft = Impossible de repasser un bon de retour validé en brouillon
+ErrorNoWarehouseForStockIncrease = Aucun entrepôt disponible pour augmenter le stock
+AddLinesFirst = Ajoutez des lignes avant de valider
+
+# Stock
+CustomerReturnStockMovement = Retour client %s
+
+# Setup
+CustomerreturnSetup = Configuration Retours Clients
+CustomerreturnAbout = A propos de Retours Clients
+CUSTOMERRETURN_AUTO_CREDIT_NOTE = Créer automatiquement un avoir lors de la validation
+
+# PDF
+PDFStandardCustomerReturn = PDF Bon de retour standard
+PDFGenerated = Document PDF généré avec succès
+Discount = Remise
+Preview = Aperçu
+OpenInNewTab = Ouvrir dans un nouvel onglet
+ClickGenerateToCreatePDF = Cliquez sur "Générer" pour créer un PDF
+NoDocuments = Aucun document

@@ -1,0 +1,69 @@
+# Dolibarr language file - Source file is fr_FR - orderpayment
+
+# Module
+Module122189600Name = Paiements Commandes
+Module122189600Desc = Permet d'enregistrer des paiements directement sur les bons de commande sans passer par les factures
+OrderPaymentDesc = Permet d'enregistrer des paiements directement sur les bons de commande sans passer par les factures
+
+# Menu
+OrderPaymentMenu = Paiements Commandes
+OrderPaymentList = Liste des paiements
+NewOrderPayment = Nouveau paiement commande
+
+# Card
+OrderPaymentCard = Fiche paiement commande
+CreateOrderPayment = Créer un paiement commande
+OrderPaymentCreated = Paiement commande créé
+OrderPaymentCanceled = Paiement commande annulé
+
+# Fields
+LinkedOrders = Commandes liées
+SelectOrders = Sélectionner les commandes (Ctrl+clic pour plusieurs)
+OrderPaymentAmount = Montant du paiement
+TotalOrderAmount = Montant total commande
+AlreadyPaidOnOrder = Déjà payé sur la commande
+RemainsToPay = Reste à payer
+BankAccount = Compte bancaire
+SelectBankAccount = Sélectionner un compte bancaire pour impacter la trésorerie
+
+# Status
+OrderPaymentValidated = Validé
+OrderPaymentCancelled = Annulé
+ReturnedCheck = Chèque impayé
+
+# Buttons
+RegisterOrderPayment = Enregistrer un paiement
+
+# Tab
+TabOrderPayments = Paiements
+
+# Messages
+NoOrderPaymentYet = Aucun paiement enregistré sur cette commande
+ConfirmCancelOrderPayment = Êtes-vous sûr de vouloir annuler ce paiement ?
+ConfirmReturnedCheck = Êtes-vous sûr de vouloir marquer ce paiement comme chèque impayé ? Cette information sera conservée dans l'historique du client.
+OrderFullyPaid = Commande entièrement payée
+OrderPartiallyPaid = Commande partiellement payée (%s)
+OrderNotPaid = Commande non payée
+CancelReason = Motif d'annulation
+IsReturnedCheck = Chèque impayé
+MarkAsReturnedCheck = Marquer comme chèque impayé
+
+# Returned checks
+ReturnedChecks = Chèques impayés
+ReturnedChecksCount = Nombre de chèques impayés
+ReturnedChecksTotal = Total chèques impayés
+NoReturnedChecks = Aucun chèque impayé
+ReturnedCheckWarning = Attention : Ce client a %s chèque(s) impayé(s) pour un total de %s
+
+# Permissions
+Permission122189600 = Lire les paiements commandes
+Permission122189601 = Créer/Modifier les paiements commandes
+Permission122189602 = Annuler les paiements commandes
+
+# Invoice Payment Cancel
+CancelPayment = Annuler le paiement
+PaymentCanceled = Paiement annulé
+PaymentAlreadyCancelled = Ce paiement a déjà été annulé
+PaymentNotFound = Paiement non trouvé
+Invoices = Factures liées
+Back = Retour

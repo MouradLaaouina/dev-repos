@@ -1,0 +1,64 @@
+# Dolibarr language file - fr_FR - deliverymen
+
+# Module
+Module122189900Name = Livreurs
+Module122189900Desc = Gestion des livreurs et affectation aux expéditions
+DeliverymenDesc = Affectez des livreurs aux bons d'expédition et exportez les états journaliers
+
+# Permissions
+Permission1221899001 = Voir les affectations livreurs
+Permission1221899002 = Affecter un livreur
+Permission1221899003 = Exporter les états livreurs
+
+# Menu
+Livreurs = Livreurs
+EtatJournalier = Etat journalier
+
+# General
+Deliveryman = Livreur
+Deliverymen = Livreurs
+DeliveryAssignment = Affectation livraison
+DeliveryAssignmentsList = Liste des affectations
+AssignDeliveryman = Affecter un livreur
+NoDeliverymanAssigned = Aucun livreur affecté
+CurrentDeliveryman = Livreur actuel
+DeliveryDate = Date de livraison
+AssignmentDate = Date d'affectation
+DeliveryDoneDate = Date de livraison effectuée
+ChangeStatus = Changer le statut
+
+# Status
+StatusPending = En attente
+StatusInProgress = En cours
+StatusDelivered = Livré
+StatusFailed = Echec
+
+# Actions
+DeliverymanAssigned = Livreur affecté avec succès
+DeliverymanRemoved = Affectation supprimée
+StatusUpdated = Statut mis à jour
+RemoveAssignment = Supprimer l'affectation
+ConfirmRemoveAssignment = Êtes-vous sûr de vouloir supprimer cette affectation ?
+
+# Daily Report
+DailyReport = Etat journalier
+DeliveriesFor = Livraisons pour
+NoDeliveriesForThisDate = Aucune livraison prévue pour cette date
+TotalDeliveries = Total livraisons
+TotalDelivered = Total livré
+Deliveries = livraisons
+Summary = Récapitulatif
+ExportCSV = Exporter CSV
+ExportPDF = Exporter PDF
+SignatureDeliveryman = Signature livreur
+SignatureResponsible = Signature responsable
+
+# Errors
+ErrorSelectDeliveryman = Veuillez sélectionner un livreur
+
+# Daily Report - Additional
+DateStart = Date début
+DateEnd = Date fin
+AmountTTC = Montant TTC
+DateDelivery = Date livraison
+Paid = Réglé

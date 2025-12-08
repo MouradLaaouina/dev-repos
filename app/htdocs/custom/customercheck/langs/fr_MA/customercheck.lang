@@ -1,0 +1,42 @@
+# Dolibarr language file - Source file is fr_MA - customercheck
+
+# Module
+Module122189800Name = Vérifications Client
+Module122189800Desc = Avertissements avant validation (chèques impayés, encours dépassé)
+CustomercheckDesc = Avertissements avant validation des commandes et devis
+
+# Setup
+CustomercheckSetup = Configuration Vérifications Client
+CustomercheckAbout = A propos de Vérifications Client
+EnableReturnedChecks = Activer la vérification des chèques impayés
+EnableCreditLimit = Activer la vérification de l encours autorisé
+
+# Validation Warnings
+ValidationWarnings = Attention - Vérifications client
+WarningReturnedChecks = Ce client a %s chèque(s) impayé(s) pour un montant total de %s
+WarningCreditLimitExceeded = L encours autorisé de %s est dépassé. Encours actuel : %s + Ce document : %s = Dépassement de %s
+ConfirmContinueValidation = Voulez-vous continuer malgré ces avertissements ?
+ValidationBlocked = Validation impossible - Vous n'avez pas les droits pour valider un document avec des chèques impayés.
+
+# Permissions
+Permission1221898001 = Valider malgré chèques impayés
+Permission1221898002 = Lever la sanction chèque impayé
+
+# Returned Checks Management
+ReturnedChecksList = Liste des chèques impayés
+AddReturnedCheck = Ajouter un chèque impayé
+ReturnedCheckCreated = Chèque impayé enregistré
+CheckNumber = Numéro de chèque
+Bank = Banque
+DateCheck = Date du chèque
+DateReturned = Date de rejet
+Reason = Motif
+SanctionStatus = Statut sanction
+SanctionActive = Sanction active
+SanctionLifted = Sanction levée
+LiftSanction = Lever la sanction
+ReactivateSanction = Réactiver la sanction
+ConfirmLiftSanction = Êtes-vous sûr de vouloir lever la sanction pour le chèque %s ? Le client pourra à nouveau commander.
+ConfirmReactivateSanction = Êtes-vous sûr de vouloir réactiver la sanction pour le chèque %s ?
+NoteForLiftingSanction = Note (raison de la levée)
+NotEnoughPermissions = Vous n avez pas les droits nécessaires

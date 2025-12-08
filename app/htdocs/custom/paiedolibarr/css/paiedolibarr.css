@@ -1,0 +1,417 @@
+#paiedolibarrpage span.paiesearchbutton {
+    display: inline-block;
+    margin-left: 15px;
+    vertical-align: middle;
+    float: right;
+}
+#paiedolibarrpage span.paiesearchbutton > input {
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+.paiecalculdesalaire > div.tablesalaire {
+    border: 1px dashed #e9eaed;
+}
+
+.paiecalculdesalaire > div.tablesalaire th.paieemptyline {
+    background-color: #e9eaed;
+    border: 1px solid #e9eaed;
+    padding: 0 !important;
+    width: 7px;
+    max-width: 3px;
+    min-width: 3px;
+    display: none;
+}
+.paiecalculdesalaire tr.breakline td {
+    background-color: #e9eaed;
+    padding: 2px;
+    height: 26px;
+    font-weight: bold;
+}
+.paiepaiediv .recalculpaie {
+    text-align: center;
+    margin-bottom: 15px;
+    /*display: none;*/
+}
+.paiepaiediv td.td_total input[readonly] {
+    background-color: #e9eaed;
+    font-size: 11px;
+    text-align: right;
+}
+
+.paiepaiediv .footertable input {
+    width: 72px;
+}
+.paiepaiediv .footertable th {
+    font-weight: bold;
+}
+.paiepaiediv .paiereposr span {
+    margin: 0 15px;
+}
+/*.paiepaiediv td.td_amount
+,.paiepaiediv td.td_total 
+,.paiepaiediv td.td_defaultpart 
+,.paiepaiediv td.td_code 
+,.paiepaiediv td.td_taux  
+{
+    width: 110px;
+}*/
+
+.paiepaiediv .td_action .buttonrule:hover{
+    background-color: #fff;
+}
+
+.paiecalculdesalaire input.designation{
+    width: calc(100% - 16px);
+    width: 200px;
+    min-width: 240px;
+}
+.paiepaiediv .td_action  
+{
+    width: 27px;
+    padding: 0 3px;
+}
+.paiepaiediv .td_action .buttonrule{
+    cursor: pointer;
+    display: block;
+    line-height: 27px;
+    height: 27px;
+    width: 27px;
+    border-radius: 3px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+    color: #444;
+}
+.paiepaiediv .td_action .buttonrule .buttonrule-text{
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 27px;
+}
+.paiepaiediv td.td_category {
+    /*width: 76px;*/
+    padding: 0;
+}
+.paiepaiediv td.td_engras {
+    width: 50px;
+    padding: 0;
+}
+.paiepaiediv td.td_gainretenu {
+    width: 45px;
+    padding: 0;
+}
+.paiepaiediv td.td_defaultpart {
+    width: 86px;
+    padding: 0;
+}
+.paiepaiediv th.paietaux {
+    padding: 0;
+}
+.paiepaiediv td.td_total input
+,.paiepaiediv td.td_amount input
+{
+    width: 95px;
+    padding: 5px 3px;
+    /*font-size: 11px;*/
+    text-align: right;
+}
+.paiepaiediv td.td_total, .paiepaiediv td.td_amount {
+    /*width: 104px;*/
+    padding: 0 3px;
+    white-space: nowrap;
+}
+.paiepaiediv td.td_code input {
+    width: 35px;
+    padding: 5px 3px;
+}
+.paiepaiediv td.td_code {
+    width: 35px;
+    padding: 0 3px;
+}
+.paiepaiediv td.td_taux input {
+    width: 66px;
+    padding: 5px 2px;
+    /*font-size: 11px;*/
+    text-align: right;
+}
+.paiepaiediv td.td_taux {
+    width: 66px;
+    padding: 0 3px;
+}
+.paiepaiediv td.td_amount .info {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+}
+.paiepaiediv td.td_amount {
+    position: relative;
+}
+.paiepaiediv tr:not("BASIQUE") td.td_amount input[readonly] {
+    background-color: #ddf0f3;
+}
+.paiepaiediv tr.BASIQUE input[readonly] {
+    background-color: #e9eaed;
+}
+.paieconfigurationmod img.watermarkimg{
+    max-height: 400px;
+    height: auto;
+    width: auto;
+    max-width: 800px;
+    margin-top: 22px;
+}
+.quatrevingtpercent {
+    width: 80%;
+}
+.quatrevingtseizepercent {
+    width: 96%;
+}
+.centpercent {
+    width: 100%;
+}
+.paiepaiediv .detailsemployees td,
+.paiepaiediv .reposcomptable td {
+    padding: 1px 2px 1px 1px;
+}
+.paiepaiediv .datesconges {
+    width: 300px;
+}
+.paiepaiediv #paielines {
+    margin-bottom: 0 !important;
+}
+.paiepaiediv .titledatesconges {
+    text-align: right;
+}
+.paiepaiediv .datesconges input {
+    padding: 1px 0;
+    text-align: center;
+    width: 99px;
+}
+.paiepaiediv .reposcomptable input {
+    text-align: center;
+    padding: 1px 0;
+}
+.paiepaiediv .containerconges > table{
+    width: 100%;
+}
+.paiepaiediv .detailsemployees ,
+.paiepaiediv .containerconges ,
+.paiepaiediv .reposcomptable {
+    padding: 5px;
+    border: 1px dashed #ccc;
+}
+
+.paiepaiediv .fichecenter .titlefieldcreate:not(.bold) {
+    color: var(--tableforfieldcolor);
+}
+.paiepaiediv hr.paiehr{
+   margin: 15px 0;
+}
+
+.paiepaiediv .btnadddateconge {
+    border-radius: 12px !important;
+    color: #fff;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    supported by Chrome, Edge, Opera and Firefox */
+}
+.paiepaiediv .btnadddateconge.add {
+    background-color: #263c5c;
+    font-size: 18px;
+    width: 24px;
+    height: 24px;
+}
+.paiepaiediv .btnadddateconge.add:hover {
+    background-color: #152946;
+}
+.paiepaiediv .btnadddateconge.remove {
+    background-color: #52a5b1;
+    font-size: 11px;
+    width: 18px;
+    height: 18px;
+    line-height: 17px;
+    font-weight: bold;
+}
+.paiepaiediv .btnadddateconge.remove:hover {
+    background-color: #337680;
+}
+.paiepaiediv #datesconges tr[data-id="1"] .btnadddateconge {
+    display: none;
+}
+
+
+
+
+
+
+
+
+.paiepaiediv td.td_amount.frombase {
+    background-color: #ddf0f3;
+}
+
+.paiepaiediv td.td_amount.fromsbi {
+    background-color: #dcf9dd;
+}
+.paiepaiediv td input[readonly] {
+/*    display: none;*/
+    /*cursor: no-drop;*/
+    /*opacity: 0;*/
+}
+.paiepaiediv .calculatautomaticlyspan {
+    opacity: 0.4;
+}
+.paiepaiediv tr:not(.recalculer) .calculatautomaticlyspan
+,.paiepaiediv tr.recalculer .td_total input 
+,.paiepaiediv tr.recalculer .td_amount input 
+,.paiepaiediv tr.recalculer .td_taux input 
+,.paiepaiediv tr .td_taux span.tauxtxt 
+{
+    display: none;
+}
+.paiepaiediv tr.recalculer .td_taux span.tauxtxt {
+    display: block;
+    padding-right: 17px;
+}
+.paiepaierulesdiv .amounttype
+{
+    margin-right: 15px;
+}
+.paiepaierulesdiv tr.titlepartsalpatr td {
+    font-weight: bold;
+    background-color: #daebe1;
+    padding-left: 10px;
+}
+
+
+
+.info-box-text-module .info-box-desc .ds_url_module_desc{
+    /*opacity: 1 !important;
+    color: #A9AFB5 !important;*/
+}
+.info-box-text-module .info-box-title .ds_url_module_name 
+{
+    text-transform: uppercase;
+    text-decoration: none !important;
+    font-weight: bold;
+    margin-bottom: 3px;
+    color: #000;
+    cursor: default;
+}
+.info-box-module .info-box-icon a.ds_image_module_logo {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+.info-box-module .info-box-icon .ds_image_module_logo img {
+    max-width: 60%;
+}
+.info-box-content .info-box-desc .ds_url_module_desc
+{
+    text-decoration: none !important;
+    color: #0a1464;
+    cursor: default;
+}
+table[summary="list_of_modules"] .ds_url_module_desc
+{
+    text-decoration: none !important;
+    color: #202020;
+    cursor: default;
+}
+table[summary="list_of_modules"] .ds_url_module_name
+{
+    text-decoration: none !important;
+    color: #202020;
+    cursor: default;
+}
+
+.paiepaierulesdiv .width100percent{
+    width: 100%;
+}
+
+.paiepaierulesdiv .codepaie{
+   text-transform: uppercase;
+}
+
+
+.paievariablesdisponibles{
+    font-size: 11px;
+}
+
+.paievariablesdisponibles td.maxwidth50 {
+    width: 155px;
+}
+
+.paiepaiediv .recalculerbutton.hide{
+    display: none !important;
+}
+
+span.exemplecondition {
+    font-size: 12px;
+    /*opacity: 0.7;*/
+}
+
+.baseamountcalculated textarea{
+    min-height: 70px;
+}
+
+body .paiepaiediv table.morepaddingtd td {
+    padding: 5px 2px 5px 2px;
+}
+
+.paiedolibarr_paiedolibarrlist th.boldth a{
+    font-weight: bold !important;
+    color: var(--colortexttitlenotab);
+}
+
+#paiedoliabr_salaryscall .newligne{
+    font-size: 2em;
+}
+
+#paiedoliabr_salaryscall #save_newlines.hidden{
+    display: none;
+}
+
+/* ============================================================================== */
+/*  Fix pour les multiselect qui ne s'affichent pas                              */
+/* ============================================================================== */
+
+select.multiselectononeline {
+    opacity: 1 !important;
+    height: auto !important;
+    min-height: 28px !important;
+    padding: 4px 8px !important;
+    background-color: #fff !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    width: auto !important;
+    min-width: 150px !important;
+}
+
+select.multiselect {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.multiselect-native-select {
+    display: inline-block !important;
+}
+
+.multiselect-native-select .btn-group {
+    display: inline-block !important;
+}
+
+.multiselect-native-select .btn-group .multiselect {
+    background-color: #fff !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    padding: 4px 24px 4px 8px !important;
+    min-height: 28px !important;
+}
