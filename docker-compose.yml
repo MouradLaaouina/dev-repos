@@ -1,0 +1,95 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:${MYSQL_VERSION}
+    container_name: dolibarr_db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./mysql_init:/docker-entrypoint-initdb.d
+    networks:
+      - dolibarr_net
+
+  app:
+    image: dolibarr/dolibarr:${DOLIBARR_VERSION}
+    container_name: dolibarr
+    depends_on:
+      - db
+    environment:
+      DOLI_ADMIN_LOGIN: ${DOLI_ADMIN_LOGIN}
+      DOLI_ADMIN_PASSWORD: ${DOLI_ADMIN_PASSWORD}
+      DOLI_DB_HOST: db
+      DOLI_DB_NAME: ${MYSQL_DATABASE}
+      DOLI_DB_USER: ${MYSQL_USER}
+      DOLI_DB_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app/htdocs:/var/www/html:delegated
+      - ./app/scripts:/var/www/scripts:delegated
+      - ./app/htdocs/custom:/var/www/html/custom:delegated
+      - ./documents:/var/www/documents:delegated
+      - ./conf/:/var/www/htdocs/conf/:delegated
+      - ./startup.sh:/startup.sh:ro
+    command: sh -c "sleep 10 && sh /startup.sh && docker-php-entrypoint apache2-foreground"
+    networks:
+      - dolibarr_net
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: dolibarr_phpmyadmin
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_USER: ${MYSQL_USER}
+      PMA_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "8081:80"
+    networks:
+      - dolibarr_net
+
+  api-express:
+    build:
+      context: "./Api Express"
+    container_name: api-express
+    depends_on:
+      - app
+    env_file:
+      - "./Api Express/.env"
+    environment:
+      BASE_URL: http://app/api/index.php
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    networks:
+      - dolibarr_net
+
+  b2b-front:
+    build:
+      context: "./a2S-b2bfront"
+    container_name: a2s-b2bfront
+    depends_on:
+      - api-express
+    ports:
+      - "5173:80"
+    networks:
+      - dolibarr_net
+
+  btoc-front:
+    build:
+      context: "./a2s_btoc"
+    container_name: a2s-btoc
+    depends_on:
+      - api-express
+    ports:
+      - "8083:80"
+    networks:
+      - dolibarr_net
+
+networks:
+  dolibarr_net:
