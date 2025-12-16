@@ -22,6 +22,16 @@ export const loginFunction = async (login,password)=> {
     }
 }
 
+export const signup = async (userData) => {
+    try {
+        const res = await postWithToken('/users', userData, process.env.DOLAPIKEY);
+        return res;
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+}
+
 export const getWithToken = async (url,token) =>{
     const config = {
         headers: { DOLAPIKEY: `${token}` }
