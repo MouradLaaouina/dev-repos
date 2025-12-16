@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { User } from '../types';
-import { supabase } from '../lib/supabase';
+import { apiFetch, setAuthToken, removeAuthToken, getAuthToken } from '../lib/api';
 import toast from 'react-hot-toast';
 
 interface AuthState {
@@ -13,50 +13,50 @@ interface AuthState {
   checkAuth: () => Promise<void>;
 }
 
+const getTeamName = (codeAgence: string) => {
+  switch (codeAgence) {
+    case '000001':
+      return 'Réseaux sociaux';
+    case '000002':
+      return 'Centre d\'appel';
+    case '000003':
+      return 'WhatsApp';
+    default:
+      return '';
+  }
+};
+
 export const useAuthStore = create<AuthState>()((set, get) => ({
   user: null,
   isAuthenticated: false,
   loading: true,
 
   checkAuth: async () => {
-    try {
-      const { data: { session } } = await supabase.auth.getSession();
-      
-      if (session?.user) {
-        const { data: userData, error } = await supabase
-          .from('users')
-          .select('*')
-          .eq('id', session.user.id)
-          .single();
-
-        if (error) throw error;
-
-        // Determine team name based on code_agence
-        let team = '';
-        if (userData.code_agence === '000001') team = 'Réseaux sociaux';
-        else if (userData.code_agence === '000002') team = 'Centre d\'appel';
-        else if (userData.code_agence === '000003') team = 'WhatsApp';
-
-        set({ 
+    const token = getAuthToken();
+    if (token) {
+      try {
+        const userInfo = await apiFetch('/auth/me');
+        const team = getTeamName(userInfo.result.code_agence);
+        set({
           user: {
-            ...userData,
-            codeAgence: userData.code_agence, // Map database field to type
-            team, // Add team name
-            createdAt: new Date(userData.created_at)
+            ...userInfo.result,
+            codeAgence: userInfo.result.code_agence,
+            team,
+            createdAt: new Date(userInfo.result.created_at)
           },
           isAuthenticated: true,
           loading: false
         });
-      } else {
-        set({ 
+      } catch (error) {
+        removeAuthToken();
+        set({
           user: null,
           isAuthenticated: false,
           loading: false
         });
       }
-    } catch (error) {
-      console.error('Auth check error:', error);
-      set({ 
+    } else {
+      set({
         user: null,
         isAuthenticated: false,
         loading: false
@@ -66,38 +66,23 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
 
   login: async (email, password) => {
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
+      const { token, user } = await apiFetch('/auth/login', {
+        method: 'POST',
+        body: JSON.stringify({ login: email, password }),
       });
 
-      if (error) throw error;
-
-      if (data.user) {
-        const { data: userData, error: userError } = await supabase
-          .from('users')
-          .select('*')
-          .eq('id', data.user.id)
-          .single();
-
-        if (userError) throw userError;
-
-        // Determine team name based on code_agence
-        let team = '';
-        if (userData.code_agence === '000001') team = 'Réseaux sociaux';
-        else if (userData.code_agence === '000002') team = 'Centre d\'appel';
-        else if (userData.code_agence === '000003') team = 'WhatsApp';
-
-        set({ 
+      if (token) {
+        setAuthToken(token);
+        const team = getTeamName(user.code_agence);
+        set({
           user: {
-            ...userData,
-            codeAgence: userData.code_agence, // Map database field to type
-            team, // Add team name
-            createdAt: new Date(userData.created_at)
+            ...user,
+            codeAgence: user.code_agence,
+            team,
+            createdAt: new Date(user.created_at)
           },
-          isAuthenticated: true 
+          isAuthenticated: true
         });
-        
         toast.success('Connexion réussie');
         return true;
       }
@@ -110,47 +95,31 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
   },
 
   logout: async () => {
-    try {
-      await supabase.auth.signOut();
-      set({ user: null, isAuthenticated: false });
-      toast.success('Déconnexion réussie');
-    } catch (error) {
-      console.error('Logout error:', error);
-      toast.error('Erreur lors de la déconnexion');
-    }
+    removeAuthToken();
+    set({ user: null, isAuthenticated: false });
+    toast.success('Déconnexion réussie');
   },
 
   register: async (name, email, password) => {
     try {
-      const { data: { user }, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            name,
-            role: 'agent'
-          }
-        }
+      const [firstname, lastname] = name.split(' ');
+      const { token, user } = await apiFetch('/auth/signup', {
+        method: 'POST',
+        body: JSON.stringify({ email, password, firstname, lastname }),
       });
 
-      if (error) throw error;
-
-      if (user) {
-        // Create user profile in users table
-        const { error: profileError } = await supabase
-          .from('users')
-          .insert([
-            {
-              id: user.id,
-              name,
-              email,
-              role: 'agent',
-              created_at: new Date().toISOString()
-            }
-          ]);
-
-        if (profileError) throw profileError;
-        
+      if (token) {
+        setAuthToken(token);
+        const team = getTeamName(user.code_agence);
+        set({
+          user: {
+            ...user,
+            codeAgence: user.code_agence,
+            team,
+            createdAt: new Date(user.created_at)
+          },
+          isAuthenticated: true
+        });
         toast.success('Inscription réussie! Vous pouvez maintenant vous connecter.');
         return true;
       }
@@ -164,7 +133,4 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
 }));
 
 // Initialize auth state on app load
-supabase.auth.onAuthStateChange((event, session) => {
-  const { checkAuth } = useAuthStore.getState();
-  checkAuth();
-});
+useAuthStore.getState().checkAuth();

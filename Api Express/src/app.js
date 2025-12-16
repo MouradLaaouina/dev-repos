@@ -10,6 +10,7 @@ import proposalRouter from "./router/ProposalRouter.js"
 import selloutRouter from "./router/SelloutRouter.js"
 import discountRouter from "./router/DiscountRouter.js"
 import shipmentRouter from "./router/ShipmentRouter.js"
+import contactRouter from "./router/ContactRouter.js"
 
 const app = express()
 
@@ -38,6 +39,7 @@ app.use("/api/setup",setupRouter)
 app.use("/api/sellout", selloutRouter)
 app.use("/api/discounts", discountRouter)
 app.use("/api/shipments", shipmentRouter)
+app.use("/api/contacts", contactRouter)
 
 app.listen(PORT,()=>{
     console.log(`Router listen port : ${PORT}`)
