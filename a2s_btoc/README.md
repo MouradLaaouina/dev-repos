@@ -1,6 +1,6 @@
 # a2s_btoc - CRM & Call Center Frontend
 
-Interface frontend B2C pour le système A2S Dolibarr, permettant la gestion des leads, des commandes et des interactions clients (WhatsApp, Social, Call Center).
+Interface frontend B2C pour le système A2S Dolibarr, permettant la gestion manuelle des leads, des commandes et des interactions clients (Social, Call Center).
 
 ## 🚀 Technologies
 
@@ -8,7 +8,6 @@ Interface frontend B2C pour le système A2S Dolibarr, permettant la gestion des 
 - **Vite** pour le build et le développement
 - **Tailwind CSS** pour le stylage
 - **Zustand** pour la gestion d'état global
-- **Supabase** pour la persistance des données CRM
 - **Dolibarr API** (via Express) pour l'authentification et l'ERP
 
 ## 📖 Documentation

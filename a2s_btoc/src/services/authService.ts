@@ -1,5 +1,6 @@
 import { apiClient } from './apiClient';
 import { User } from '../types';
+import { btocStatsService } from './btocStatsService';
 
 interface LoginResponse {
   succes: string;
@@ -62,6 +63,10 @@ class AuthService {
     if (response.succes === 'ok' || response.token) {
       apiClient.setToken(response.token);
       const user = mapDolibarrUserToUser(response.user);
+      
+      // Track login
+      btocStatsService.trackAction('LOGIN', { login: user.code });
+      
       return { token: response.token, user };
     }
 

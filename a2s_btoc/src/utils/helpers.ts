@@ -75,11 +75,13 @@ export function getStatusStats(contacts: any[]): Record<ContactStatus, number> {
   };
 }
 
-export function getPlatformStats(contacts: any[]): Record<Platform, number> {
+export function getPlatformStats(contacts: any[]): Record<string, number> {
   return {
     Facebook: contacts.filter((contact) => contact.plateforme === 'Facebook').length,
     Instagram: contacts.filter((contact) => contact.plateforme === 'Instagram').length,
     WhatsApp: contacts.filter((contact) => contact.plateforme === 'WhatsApp').length,
+    Clients: contacts.filter((contact) => contact.plateforme === 'Clients').length,
+    "Centre d'appel": contacts.filter((contact) => contact.plateforme === "Centre d'appel").length,
   };
 }
 

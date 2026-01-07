@@ -1,0 +1,4 @@
+ModuleBtocstatsDesc=Statistiques BToC
+ModuleBtocstatsDescLong=Suivre et analyser les statistiques pour le frontend BToC
+BTOCStatsRead=Lire les statistiques BToC
+BTOCStatsWrite=Créer des statistiques BToC
