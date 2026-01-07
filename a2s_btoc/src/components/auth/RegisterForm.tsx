@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Mail, Lock, User, UserPlus } from 'lucide-react';
-import { useAuthStore } from '../../store/authStore';
 import toast from 'react-hot-toast';
 
 const RegisterForm: React.FC = () => {
@@ -10,23 +9,16 @@ const RegisterForm: React.FC = () => {
   const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
-  const register = useAuthStore((state) => state.register);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const success = await register(name, email, password);
-      
-      if (success) {
-        toast.success('Inscription réussie! Vous pouvez maintenant vous connecter.');
-        navigate('/login');
-      } else {
-        toast.error('Cette adresse email est déjà utilisée.');
-      }
+      toast.error('L\'inscription n\'est pas disponible. Veuillez contacter l\'administrateur pour créer un compte.');
+      navigate('/login');
     } catch (error) {
-      toast.error('Une erreur est survenue lors de l\'inscription.');
+      toast.error('Une erreur est survenue.');
     } finally {
       setIsSubmitting(false);
     }
