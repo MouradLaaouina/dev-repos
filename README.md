@@ -77,33 +77,6 @@ PORT=3000
 
 L’image Docker est construite automatiquement par `docker-compose.yml` grâce au `Dockerfile` fourni dans `Api Express/`.
 
-### Importer le projet A2S B2B Front
-
-Le front **a2S-b2bfront** doit lui aussi être cloné  `a2s-local-dev` :
-
-Via un **token** :
-
-```bash
-git clone --branch develop --single-branch https://oauth2:glpat-XXX@ns327060.ip-5-135-138.eu/gitlab/a2s/b2b-front.git a2S-b2bfront
-```
-
-Via **ssh** :
-
-```bash
-git clone --branch develop --single-branch ssh://git@ns327060.ip-5-135-138.eu:2222/a2s/b2b-front.git a2S-b2bfront
-```
-
-Structure recommandée :
-
-
-Configurer `a2S-b2bfront/.env` pour pointer vers l’API Express locale :
-
-```dotenv
-VITE_API_URL=http://localhost:3001/api
-```
-
-Le `docker-compose.yml` construit automatiquement l'image du front (build Vite puis Nginx) à partir de ce dossier.
-
 ### Importer le projet A2S BtoC Front
 
 Le front **a2s_btoc** (CRM avec WhatsApp, Facebook, Instagram) doit également être cloné en dehors de `a2s-local-dev` :
@@ -139,5 +112,4 @@ docker-compose up -d
 - Dolibarr : [http://localhost:8080](http://localhost:8080) (login par défaut : `admin` / `admin`)
 - PhpMyAdmin : [http://localhost:8081](http://localhost:8081) (`dolibarr` / `dolibarr` ou `root` / `root`)
 - API Express : [http://localhost:3001](http://localhost:3001)
-- Front B2B : [http://localhost:8082](http://localhost:8082)
 - Front BtoC : [http://localhost:8083](http://localhost:8083)

@@ -69,17 +69,6 @@ services:
     networks:
       - dolibarr_net
 
-  b2b-front:
-    build:
-      context: "./a2S-b2bfront"
-    container_name: a2s-b2bfront
-    depends_on:
-      - api-express
-    ports:
-      - "5173:80"
-    networks:
-      - dolibarr_net
-
   btoc-front:
     build:
       context: "./a2s_btoc"
