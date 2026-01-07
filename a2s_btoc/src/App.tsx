@@ -7,7 +7,6 @@ import RegisterForm from './components/auth/RegisterForm';
 import ContactForm from './components/contacts/ContactForm';
 import ClientsTab from './components/clients/ClientsTab';
 import OrdersTab from './components/orders/OrdersTab';
-import WhatsAppTab from './components/whatsapp/WhatsAppTab';
 import StatsTab from './components/stats/StatsTab';
 import AdvancedStatsTab from './components/dashboard/AdvancedStatsTab';
 import SourceStatsTab from './components/dashboard/SourceStatsTab';
@@ -50,7 +49,6 @@ function App() {
           <Route path="contacts/edit/:id" element={<ContactForm />} />
           <Route path="clients" element={<ClientsTab />} />
           <Route path="orders" element={<OrdersTab />} />
-          <Route path="whatsapp" element={<WhatsAppTab />} />
           <Route path="stats" element={<StatsTab />} />
           <Route path="advanced-stats" element={<AdvancedStatsTab />} />
           <Route path="source-stats" element={<SourceStatsTab />} />

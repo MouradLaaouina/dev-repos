@@ -35,7 +35,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         { name: 'Nouveau Contact', href: '/dashboard/contacts/new', icon: UserPlus },
         { name: 'Base Clients', href: '/dashboard/clients', icon: Users },
         { name: 'Commandes', href: '/dashboard/orders', icon: ShoppingBag },
-        { name: 'WhatsApp', href: '/dashboard/whatsapp', icon: MessageCircle },
         { name: 'Confirmation', href: '/dashboard/confirmation', icon: CheckCircle },
         { name: 'Centre d\'appel', href: '/dashboard/call-center', icon: Headphones },
         { name: 'Analyses Avancées', href: '/dashboard/advanced-stats', icon: BarChart3 },
@@ -50,9 +49,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           { name: 'Ajouter Contact', href: '/dashboard/contacts/new', icon: UserPlus },
           { name: 'Clients', href: '/dashboard/clients', icon: Users },
           { name: 'Commandes', href: '/dashboard/orders', icon: ShoppingBag },
-          ...(user?.codeAgence === '000003' ? [
-            { name: 'WhatsApp', href: '/dashboard/whatsapp', icon: MessageCircle }
-          ] : [])
         ])
       ],
       superviseur: [
@@ -62,9 +58,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         { name: 'Confirmation', href: '/dashboard/confirmation', icon: CheckCircle },
         { name: 'Analyses Avancées', href: '/dashboard/advanced-stats', icon: BarChart3 },
         { name: 'Sources & Canaux', href: '/dashboard/source-stats', icon: PieChart },
-        ...(user?.codeAgence === '000003' ? [
-          { name: 'WhatsApp', href: '/dashboard/whatsapp', icon: MessageCircle }
-        ] : []),
       ],
       confirmation: [
         { name: 'Confirmation', href: '/dashboard/confirmation', icon: CheckCircle },
