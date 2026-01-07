@@ -12,6 +12,7 @@ import discountRouter from "./router/DiscountRouter.js"
 import shipmentRouter from "./router/ShipmentRouter.js"
 import agendaRouter from "./router/AgendaRouter.js"
 import userRouter from "./router/UserRouter.js"
+import btocStatsRouter from "./router/BtocStatsRouter.js"
 
 const app = express()
 
@@ -19,7 +20,9 @@ app.use(cors({
   origin: [
     'http://localhost:5173',
     'http://localhost:3000',
-    'http://127.0.0.1:5173'
+    'http://localhost:8083',
+    'http://127.0.0.1:5173',
+    'http://127.0.0.1:8083'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -42,6 +45,7 @@ app.use("/api/discounts", discountRouter)
 app.use("/api/shipments", shipmentRouter)
 app.use("/api/agenda", agendaRouter)
 app.use("/api/users", userRouter)
+app.use("/api/btoc-stats", btocStatsRouter)
 
 app.listen(PORT,()=>{
     console.log(`Router listen port : ${PORT}`)

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Layout from './components/common/Layout';
 import LoginForm from './components/auth/LoginForm';
@@ -15,6 +15,20 @@ import ConfirmationTab from './components/confirmation/ConfirmationTab';
 import AgentDashboard from './components/agent/AgentDashboard';
 import CallCenterDashboard from './components/callcenter/CallCenterDashboard';
 import { useAuthStore } from './store/authStore';
+import { btocStatsService } from './services/btocStatsService';
+
+function PageTracker() {
+  const location = useLocation();
+  const { user } = useAuthStore();
+
+  useEffect(() => {
+    if (user) {
+      btocStatsService.trackAction('PAGE_VIEW', { path: location.pathname });
+    }
+  }, [location, user]);
+
+  return null;
+}
 
 function App() {
   const { checkAuth } = useAuthStore();
@@ -25,6 +39,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <PageTracker />
       <Toaster position="top-right" />
       <Routes>
         <Route path="/login" element={<LoginForm />} />

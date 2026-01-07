@@ -1,115 +1,52 @@
 # A2S Dolibarr Local Dev Environment
 
-Ce projet fournit un environnement **Docker Compose** pour exécuter **Dolibarr** en local avec **MySQL** et **phpMyAdmin**.
+Ce projet fournit un environnement **Docker Compose** pour exécuter **Dolibarr** en local avec **MySQL**, **phpMyAdmin**, **API Express** et le **Frontend BToC**.
 
 ### Services inclus
-- **db** : MySQL (base de données auto importée dans `./mysql_init/`)
-- **app** : Dolibarr (serveur Apache intégré, accessible sur [http://localhost:8080](http://localhost:8080))
-- **phpmyadmin** : interface phpMyAdmin, accessible sur [http://localhost:8081](http://localhost:8081)
+- **db** : MySQL (base de données auto importée depuis `./mysql_init/`)
+- **app** : Dolibarr (serveur Apache intégré, port 8080)
+- **phpmyadmin** : interface phpMyAdmin (port 8081)
+- **api-express** : Proxy API Node (port 3000)
+- **btoc-front** : Frontend React CRM (port 8083)
 
 ### Pré-requis
 - Docker
 - Docker Compose
 
-### Importer le projet A2S Dolibarr depuis GitLab
+### Démarrage Rapide
 
-Importer le dépôt Git ainsi que la création du dosser `./app/`
-
-Via un **token** :
+Pour lancer tout l'écosystème avec une seule commande :
 
 ```bash
-git clone --branch develop --single-branch https://oauth2:glpat-XXX@ns327060.ip-5-135-138.eu/gitlab/a2s/erp.git app
+./docker-start.sh
 ```
 
-Via **ssh** :
+Ce script va :
+1. Créer un fichier `.env` par défaut s'il n'existe pas.
+2. Construire et lancer tous les services Docker.
+3. Afficher les URLs d'accès.
 
-```bash
-git clone --branch develop --single-branch ssh://git@ns327060.ip-5-135-138.eu:2222/a2s/erp.git app
-```
+### Modules Dolibarr Personnalisés (BToC)
+
+Deux modules ont été créés pour isoler les données BToC des données BToB :
+- **BTOC Access Management** (`btocaccess`) : Gère les droits d'accès spécifiques pour le frontend BToC.
+- **BTOC Statistics** (`btocstats`) : Enregistre et analyse les statistiques d'utilisation du frontend BToC (pages vues, connexions, etc.) dans une table dédiée (`llx_btoc_stats`).
 
 ### Arborescence des répertoires
 
 ```text
-├── app/              # répertoire de travail importé depuis GitLab
-│   ├── htdocs/       
-│   └── scripts/      
-├── conf/             # configuration Dolibarr (montée dans /var/www/htdocs/conf/)
-├── documents/        # fichiers générés (factures, devis, uploads…)
-├── mysql_init/       # données MySQL auto importé
-├── .env              # variables d'environnement
+├── app/              # Dolibarr (htdocs, scripts)
+├── Api Express/      # Proxy API Node
+├── a2s_btoc/         # Frontend React BToC
+├── conf/             # Configuration Dolibarr
+├── documents/        # Fichiers Dolibarr (uploads, etc.)
+├── mysql_init/       # Initialisation MySQL
+├── .env              # Variables d'environnement globales
 └── docker-compose.yml
 ```
 
-### Variables d'environnement (.env)
-DOLIBARR_VERSION=22.0.1
-MYSQL_VERSION=latest
-MYSQL_DATABASE=dolibarr
-MYSQL_USER=dolibarr
-MYSQL_PASSWORD=dolibarr
-MYSQL_ROOT_PASSWORD=root
-DOLI_ADMIN_LOGIN=admin
-DOLI_ADMIN_PASSWORD=admin
-
-
-
-### Importer le projet API Express A2S
-
-Le service **api-express** s’exécute à partir d’un dossier externe au dépôt `a2s-local-dev`. Positionnez-vous dans le répertoire parent (par ex. `spec_and_doc_a2s/`) puis clonez le projet à côté :
-
-Via un **token** :
-
-```bash
-git clone --branch devlop --single-branch https://oauth2:glpat-XXX@ns327060.ip-5-135-138.eu/gitlab/a2s/api-express.git "Api Express"
-```
-
-Via **ssh** :
-
-```bash
-git clone --branch devlop --single-branch ssh://git@ns327060.ip-5-135-138.eu:2222/a2s/api_express.git "Api Express"
-```
-
-Dans le dossier `Api Express/`, créer le fichier `.env` avec un `BASE_URL` pointant sur le service Dolibarr interne :
-
-```dotenv
-BASE_URL=http://app/api/index.php
-PORT=3000
-```
-
-L’image Docker est construite automatiquement par `docker-compose.yml` grâce au `Dockerfile` fourni dans `Api Express/`.
-
-### Importer le projet A2S BtoC Front
-
-Le front **a2s_btoc** (CRM avec WhatsApp, Facebook, Instagram) doit également être cloné en dehors de `a2s-local-dev` :
-
-Via un **token** :
-
-```bash
-git clone --branch main --single-branch https://oauth2:glpat-XXX@ns327060.ip-5-135-138.eu/gitlab/a2s/btoc-front.git a2s_btoc
-```
-
-Via **ssh** :
-
-```bash
-git clone --branch develop --single-branch ssh://git@ns327060.ip-5-135-138.eu:2222/a2s/btoc-front.git a2s_btoc
-```
-
-Configurer `a2s_btoc/.env` avec les variables d'environnement nécessaires :
-
-```dotenv
-VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key
-```
-
-Le `docker-compose.yml` construit automatiquement l'image du front BtoC (build Vite puis Nginx) à partir de ce dossier.
-
-### Lancer l'écosystème complet
-
-```bash
-docker-compose up -d
-```
-
 ### Accès aux services
-- Dolibarr : [http://localhost:8080](http://localhost:8080) (login par défaut : `admin` / `admin`)
-- PhpMyAdmin : [http://localhost:8081](http://localhost:8081) (`dolibarr` / `dolibarr` ou `root` / `root`)
-- API Express : [http://localhost:3001](http://localhost:3001)
-- Front BtoC : [http://localhost:8083](http://localhost:8083)
+- Dolibarr : [http://localhost:8080](http://localhost:8080) (admin/admin)
+- BToC Front : [http://localhost:8083](http://localhost:8083)
+- API Express : [http://localhost:3000](http://localhost:3000)
+- PhpMyAdmin : [http://localhost:8081](http://localhost:8081)
