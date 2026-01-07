@@ -1,4 +1,3 @@
-import { supabase } from '../lib/supabase';
 import { useAuthStore } from '../store/authStore';
 import { useOrderStore } from '../store/orderStore';
 import { Order } from '../types';
@@ -34,7 +33,7 @@ export const exportOrders = async (orders: Order[], startDate?: Date, endDate?: 
     let totalTTC = 0;
     let totalHT = 0;
 
-    const validItems = order.items.filter(item =>
+    const validItems = (order.items || []).filter(item =>
       item.productName &&
       item.productName.toLowerCase() !== 'product' &&
       item.productCode &&
@@ -128,30 +127,8 @@ export const exportOrders = async (orders: Order[], startDate?: Date, endDate?: 
   
   console.log('✅ Excel files created successfully');
 
-  // Supabase update
-  if (userId) {
-    const orderIdsToUpdate = filteredOrders.map(order => order.orderSupabaseId).filter(Boolean);
-
-    if (orderIdsToUpdate.length > 0) {
-      console.log('🔄 Updating exported status for', orderIdsToUpdate.length, 'orders');
-      
-      const { error: updateError } = await supabase
-        .from('orders')
-        .update({
-          exported_at: new Date().toISOString(),
-          exported_by: userId
-        })
-        .in('id', orderIdsToUpdate);
-
-      if (updateError) {
-        console.error('❌ Error updating exported status:', updateError);
-      } else {
-        console.log(`✅ Updated exported status for ${orderIdsToUpdate.length} orders.`);
-        useOrderStore.getState().fetchOrders();
-        return { success: true, message: `${orderIdsToUpdate.length} commandes exportées avec succès` };
-      }
-    }
-  }
+  // We no longer update exported status in Supabase as it's being removed.
+  // Ideally this should be updated in Dolibarr via an extrafield.
   
   return { success: true, message: `${filteredOrders.length} commandes exportées avec succès` };
 };

@@ -9,12 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server/index.js",
-    "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
-    "backfill-call-logs": "node scripts/backfillCallLogs.js"
+    "dev:all": "concurrently \"npm run dev\" \"npm run server\""
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
-    "@supabase/supabase-js": "^2.39.3",
     "axios": "^1.13.2",
     "chart.js": "^4.4.0",
     "chartjs-adapter-date-fns": "^3.0.0",

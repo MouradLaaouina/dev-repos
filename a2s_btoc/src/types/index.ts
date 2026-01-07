@@ -146,7 +146,7 @@ export type OrderItem = {
 };
 
 export type Order = Contact & {
-  orderSupabaseId?: string;
+  orderExternalId?: string;
   orderNumber: string;
   deliveryDate?: Date;
   items: OrderItem[];

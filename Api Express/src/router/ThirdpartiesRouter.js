@@ -1,5 +1,5 @@
 import Router from "express"
-import { getWithToken } from "../service/axiosService.js"
+import { getWithToken, postWithToken, putWithToken, deleteWithToken } from "../service/axiosService.js"
 import { responseToDTO } from "../service/responseService.js"
 
 const thirdPartiesRouter = Router()
@@ -69,6 +69,54 @@ thirdPartiesRouter.get("/:id/representatives", async (req,res)=>{
         })
     }catch(error){
         res.send({
+            status:"error",
+            message: error.message
+        })
+    }
+})
+
+thirdPartiesRouter.post("/", async (req,res)=>{
+    const token = req.get('DOLAPIKEY')
+    try{
+        const response = await postWithToken("/thirdparties", req.body, token)
+        res.send({
+            status:"ok",
+            result: response
+        })
+    }catch(error){
+        res.status(500).send({
+            status:"error",
+            message: error.message
+        })
+    }
+})
+
+thirdPartiesRouter.put("/:id", async (req,res)=>{
+    const token = req.get('DOLAPIKEY')
+    try{
+        const response = await putWithToken(`/thirdparties/${req.params.id}`, req.body, token)
+        res.send({
+            status:"ok",
+            result: response
+        })
+    }catch(error){
+        res.status(500).send({
+            status:"error",
+            message: error.message
+        })
+    }
+})
+
+thirdPartiesRouter.delete("/:id", async (req,res)=>{
+    const token = req.get('DOLAPIKEY')
+    try{
+        const response = await deleteWithToken(`/thirdparties/${req.params.id}`, token)
+        res.send({
+            status:"ok",
+            result: response
+        })
+    }catch(error){
+        res.status(500).send({
             status:"error",
             message: error.message
         })

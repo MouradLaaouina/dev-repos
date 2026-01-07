@@ -10,6 +10,8 @@ import proposalRouter from "./router/ProposalRouter.js"
 import selloutRouter from "./router/SelloutRouter.js"
 import discountRouter from "./router/DiscountRouter.js"
 import shipmentRouter from "./router/ShipmentRouter.js"
+import agendaRouter from "./router/AgendaRouter.js"
+import userRouter from "./router/UserRouter.js"
 
 const app = express()
 
@@ -38,6 +40,8 @@ app.use("/api/setup",setupRouter)
 app.use("/api/sellout", selloutRouter)
 app.use("/api/discounts", discountRouter)
 app.use("/api/shipments", shipmentRouter)
+app.use("/api/agenda", agendaRouter)
+app.use("/api/users", userRouter)
 
 app.listen(PORT,()=>{
     console.log(`Router listen port : ${PORT}`)

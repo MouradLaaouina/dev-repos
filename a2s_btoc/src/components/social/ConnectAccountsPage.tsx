@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Facebook, Instagram, MessageSquare, AlertCircle, CheckCircle2, XCircle } from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
-import { supabase } from '../../lib/supabase';
 import toast from 'react-hot-toast';
 
 const ConnectAccountsPage: React.FC = () => {
@@ -15,13 +14,8 @@ const ConnectAccountsPage: React.FC = () => {
 
   const fetchConnectedAccounts = async () => {
     try {
-      const { data, error } = await supabase
-        .from('connected_social_accounts')
-        .select('*')
-        .eq('user_id', user?.id);
-
-      if (error) throw error;
-      setConnectedAccounts(data || []);
+      // In Dolibarr migration, this is currently not supported
+      setConnectedAccounts([]);
     } catch (error) {
       console.error('Error fetching connected accounts:', error);
       toast.error('Failed to load connected accounts');
@@ -93,7 +87,6 @@ const ConnectAccountsPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Connect Button */}
         <div className="mb-8">
           <button
             onClick={handleFacebookLogin}
@@ -107,7 +100,6 @@ const ConnectAccountsPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Connected Accounts List */}
         <div className="space-y-4">
           <h2 className="text-lg font-semibold text-gray-900">Connected Accounts</h2>
           

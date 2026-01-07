@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { Product, Brand } from '../types';
-import { supabase } from '../lib/supabase';
+import { apiClient } from '../services/apiClient';
 
 interface ProductState {
   products: Product[];
@@ -18,18 +18,14 @@ export const useProductStore = create<ProductState>()((set, get) => ({
   fetchProducts: async () => {
     set({ loading: true });
     try {
-      const { data, error } = await supabase
-        .from('products')
-        .select('*')
-        .order('brand', { ascending: true });
+      const response = await apiClient.get<any>('/products?page=0&limit=1000');
+      const data = response.result || [];
 
-      if (error) throw error;
-
-      const products: Product[] = data.map(product => ({
+      const products: Product[] = data.map((product: any) => ({
         id: product.id,
-        code: product.code,
-        name: product.name,
-        brand: product.brand,
+        code: product.ref,
+        name: product.label,
+        brand: product.array_options?.options_brand || 'D-WHITE',
         priceHT: product.price
       }));
 
@@ -41,7 +37,6 @@ export const useProductStore = create<ProductState>()((set, get) => ({
   },
   
   getProductsByBrand: (brand) => {
-    // Sort products by price (cheaper to more expensive)
     return get().products
       .filter(product => product.brand === brand)
       .sort((a, b) => a.priceHT - b.priceHT);
