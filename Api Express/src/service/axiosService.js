@@ -57,6 +57,41 @@ export const postWithToken = async (url,body,token)=>{
     }
 }
 
+export const putWithToken = async (url,body,token)=>{
+    const config = {
+     headers: { DOLAPIKEY: `${token}` }
+ };
+
+ try {
+     const res = await axios.put(
+         `${BASE_URL}${url}`,
+         body,
+         config
+     )
+     return res.data;
+ } catch (err) {
+     console.error(err);
+     throw err;
+ }
+}
+
+export const deleteWithToken = async (url,token)=>{
+    const config = {
+     headers: { DOLAPIKEY: `${token}` }
+ };
+
+ try {
+     const res = await axios.delete(
+         `${BASE_URL}${url}`,
+         config
+     )
+     return res.data;
+ } catch (err) {
+     console.error(err);
+     throw err;
+ }
+}
+
 export const getUserInfo = async (token) => {
     try {
         const res = await getWithToken('/users/info', token);
