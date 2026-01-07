@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { User } from '../types';
-import { supabase } from '../lib/supabase';
+import { authService } from '../services/authService';
 import toast from 'react-hot-toast';
 
 interface AuthState {
@@ -9,7 +9,6 @@ interface AuthState {
   loading: boolean;
   login: (email: string, password: string) => Promise<boolean>;
   logout: () => Promise<void>;
-  register: (name: string, email: string, password: string) => Promise<boolean>;
   checkAuth: () => Promise<void>;
 }
 
@@ -20,30 +19,11 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
 
   checkAuth: async () => {
     try {
-      const { data: { session } } = await supabase.auth.getSession();
-      
-      if (session?.user) {
-        const { data: userData, error } = await supabase
-          .from('users')
-          .select('*')
-          .eq('id', session.user.id)
-          .single();
-
-        if (error) throw error;
-
-        // Determine team name based on code_agence
-        let team = '';
-        if (userData.code_agence === '000001') team = 'Réseaux sociaux';
-        else if (userData.code_agence === '000002') team = 'Centre d\'appel';
-        else if (userData.code_agence === '000003') team = 'WhatsApp';
-
+      const token = authService.getToken();
+      if (token) {
+        const userInfo = await authService.getCurrentUser();
         set({ 
-          user: {
-            ...userData,
-            codeAgence: userData.code_agence, // Map database field to type
-            team, // Add team name
-            createdAt: new Date(userData.created_at)
-          },
+          user: userInfo,
           isAuthenticated: true,
           loading: false
         });
@@ -66,42 +46,13 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
 
   login: async (email, password) => {
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
+      const { token, user } = await authService.login(email, password);
+      set({ 
+        user,
+        isAuthenticated: true 
       });
-
-      if (error) throw error;
-
-      if (data.user) {
-        const { data: userData, error: userError } = await supabase
-          .from('users')
-          .select('*')
-          .eq('id', data.user.id)
-          .single();
-
-        if (userError) throw userError;
-
-        // Determine team name based on code_agence
-        let team = '';
-        if (userData.code_agence === '000001') team = 'Réseaux sociaux';
-        else if (userData.code_agence === '000002') team = 'Centre d\'appel';
-        else if (userData.code_agence === '000003') team = 'WhatsApp';
-
-        set({ 
-          user: {
-            ...userData,
-            codeAgence: userData.code_agence, // Map database field to type
-            team, // Add team name
-            createdAt: new Date(userData.created_at)
-          },
-          isAuthenticated: true 
-        });
-        
-        toast.success('Connexion réussie');
-        return true;
-      }
-      return false;
+      toast.success('Connexion réussie');
+      return true;
     } catch (error) {
       console.error('Login error:', error);
       toast.error('Email ou mot de passe incorrect');
@@ -111,7 +62,7 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
 
   logout: async () => {
     try {
-      await supabase.auth.signOut();
+      authService.logout();
       set({ user: null, isAuthenticated: false });
       toast.success('Déconnexion réussie');
     } catch (error) {
@@ -119,52 +70,4 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
       toast.error('Erreur lors de la déconnexion');
     }
   },
-
-  register: async (name, email, password) => {
-    try {
-      const { data: { user }, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            name,
-            role: 'agent'
-          }
-        }
-      });
-
-      if (error) throw error;
-
-      if (user) {
-        // Create user profile in users table
-        const { error: profileError } = await supabase
-          .from('users')
-          .insert([
-            {
-              id: user.id,
-              name,
-              email,
-              role: 'agent',
-              created_at: new Date().toISOString()
-            }
-          ]);
-
-        if (profileError) throw profileError;
-        
-        toast.success('Inscription réussie! Vous pouvez maintenant vous connecter.');
-        return true;
-      }
-      return false;
-    } catch (error) {
-      console.error('Registration error:', error);
-      toast.error('Erreur lors de l\'inscription');
-      return false;
-    }
-  }
 }));
-
-// Initialize auth state on app load
-supabase.auth.onAuthStateChange((event, session) => {
-  const { checkAuth } = useAuthStore.getState();
-  checkAuth();
-});
